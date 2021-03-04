@@ -1,16 +1,28 @@
-# Тук-тук
-"Тук-тук" is a service where people renting an apartment can find a roommate, or find a friend to search for an apartment together.
+# Тук тук
+"Тук-тук" is a service where people already renting an apartment can find a roommates who share common interests to share rent, or find a group of people to search for a desired apartment together.
 
 ## Target Audience
-Our target audience is students. We want to create a very convenient solution for them, so it would be a lot easier to find roommates.
+Our target audience is students but anyone can use the service. We want to create a very convenient solution for everyone, so it would be a lot easier to find roommates.
 
 ## Main Functionality
-- Every user has their own profile.  
-- There will be a page with roommate search ads. User can upload own photos of an apartment or leave a third-party link.
-- There will be a page with users' posts about themselves so people can group with them for an apartment search.
+- User can register. Every user has their own profile filled with detailed information about himself (including name, working schedule, age, sex, desired district, personal qualities, preferences about roommates, price range, life goals etc.).
+- User can make posts. There are two kinds of posts:
+  - group gathering with intention to find and share a flat later on;
+  - searching for a roommate to join existing group which rents a particular flat.
+- Communication via external links to Telegram, Viber etc. 
+- Embedded chat may be added later on.
 
 ## Technologies
-TBA
+### Front-end:
+- HTML
+- CSS
+- JS
+
+### Back-end:
+- Node.js
+- PostgreSQL
+
+More can be added soon.
 
 ## Development Team
 - [Kariavka Daria](https://github.com/Ariiia)
