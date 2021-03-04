@@ -4,13 +4,12 @@
 ## Target Audience
 Our target audience is students but anyone can use the service. We want to create a very convenient solution for everyone, so it would be a lot easier to find roommates.
 
-## Main Functionality
-- User can register. Every user has their own profile filled with detailed information about himself (including name, working schedule, age, sex, desired district, personal qualities, preferences about roommates, price range, life goals etc.).
+## User Stories
+- User can register, login, have access to his profile and edit it (including name, working schedule, age, sex, desired district, personal qualities, preferences about roommates, price range, life goals etc.).
 - User can make posts. There are two kinds of posts:
-  - group gathering with intention to find and share a flat later on;
-  - searching for a roommate to join existing group which rents a particular flat.
-- Communication via external links to Telegram, Viber etc. 
-- Embedded chat may be added later on.
+  - group gathering with intention to find and share a flat later on (info about himself, desired location etc.);
+  - searching for a roommate to join existing group which rents a particular flat (user can add own photos of flat or add a third-party link to original ad);
+- User can communicate with other user (Telegram, Viber etc. or embedded chat).
 
 ## Technologies
 ### Front-end:
