@@ -20,15 +20,9 @@
       "eslint --fix",
       "jest --findRelatedTests"
     ],
-    "src/*.html": [
-      "prettier --write",
-      "eslint --fix",
-      "jest --findRelatedTests"
-    ],
     "src/styles/*.css": [
       "prettier --write",
-      "eslint --fix",
-      "jest --findRelatedTests"
+      "eslint --fix"
     ]
   },
   "repository": {
