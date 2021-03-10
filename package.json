@@ -15,7 +15,17 @@
     }
   },
   "lint-staged": {
-    "src/*.{js, html},src/styles/*.css": [
+    "src/*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "jest --findRelatedTests"
+    ],
+    "src/*.html": [
+      "prettier --write",
+      "eslint --fix",
+      "jest --findRelatedTests"
+    ],
+    "src/styles/*.css": [
       "prettier --write",
       "eslint --fix",
       "jest --findRelatedTests"
