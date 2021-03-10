@@ -1,0 +1,8 @@
+{
+    "prettier.configPath": "C:\\Uni\\gitloc\\tuk-tuk\\.prettierrc.json",
+    "prettier.jsxSingleQuote": true,
+    "prettier.requireConfig": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "none",
+    "prettier.useTabs": true
+}

@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "node": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -16,7 +17,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier"
     ],
     "rules": {
         "no-unused-vars": ["error", { "caughtErrorsIgnorePattern": "^ignore" }],
@@ -35,6 +37,8 @@
         "semi": [
             "error",
             "always"
-        ]
+        ], 
+        "no-console": 2
     }
 }
+

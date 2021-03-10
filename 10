@@ -1,0 +1,23 @@
+
+> husky@4.3.8 install C:\Uni\gitloc\tuk-tuk\node_modules\husky
+> node husky install
+
+husky > Setting up git hooks
+husky > Done
+
+> husky@4.3.8 postinstall C:\Uni\gitloc\tuk-tuk\node_modules\husky
+> opencollective-postinstall || exit 0
+
+[96m[1mThank you for using husky![96m[1m
+[0m[96mIf you rely on this package, please consider supporting our open collective:[22m[39m
+> [94mhttps://opencollective.com/husky/donate[0m
+
++ husky@4.3.8
++ lint-staged@10.5.4
+added 57 packages from 47 contributors and audited 1178 packages in 20.848s
+
+94 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
