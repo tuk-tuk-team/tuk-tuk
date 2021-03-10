@@ -1,4 +1,4 @@
-const func = require('./simple');
+const func = require('../simple');
 
 test('to return string', () => {
 	const vvv = func();
