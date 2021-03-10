@@ -18,7 +18,6 @@
     "src/*.js": [
       "prettier --write",
       "eslint --fix",
-      "jest --coverage",
       "git add"
     ]
   },
