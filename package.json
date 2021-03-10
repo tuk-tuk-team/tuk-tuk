@@ -18,7 +18,7 @@
     "src/*.js": [
       "prettier --write",
       "eslint --fix",
-      "git add"
+      "jest --coverage"  
     ]
   },
   "repository": {
