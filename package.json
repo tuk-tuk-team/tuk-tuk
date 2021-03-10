@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "test": "jest --coverage",
     "lint": "eslint --ext .js src",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "build": "webpack --config webpack.config.js --mode production"
   },
   "husky": {
     "hooks": {
@@ -18,14 +19,8 @@
     "src/*.js": [
       "prettier --write",
       "eslint --fix",
-      "jest --findRelatedTests"
-    ],
-    "src/*.html": [     
-      "prettier --write"
-    ],
-    "src/styles/*.css": [
-      "prettier --write",
-      "eslint --fix"
+      "jest --findRelatedTests --coverage",
+      "npm run build"
     ]
   },
   "repository": {

@@ -20,6 +20,7 @@
         "react",
         "prettier"
     ],
+   
     "rules": {
         "no-unused-vars": ["error", { "caughtErrorsIgnorePattern": "^ignore" }],
         "indent": [
