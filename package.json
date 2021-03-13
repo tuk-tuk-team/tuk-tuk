@@ -17,9 +17,9 @@
     }
   },
   "lint-staged": {
-    "src/*.js": [
-      "prettier --check ./",
-      "eslint src/",
+    "src/": [
+      "prettier --check ../",
+      "eslint",
       "jest --findRelatedTests",
       "npm run build"
     ]
