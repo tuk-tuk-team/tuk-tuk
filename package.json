@@ -19,7 +19,7 @@
     "src/*.js": [
       "prettier --write",
       "eslint --fix",
-      "jest --findRelatedTests --coverage",
+      "jest --findRelatedTests",
       "npm run build"
     ]
   },
