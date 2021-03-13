@@ -7,18 +7,19 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "test": "jest --coverage",
     "check-format": "prettier --check ./ && eslint src/",
-    "format": "eslint src/ --fix && prettier",
+    "format": "eslint src/ --fix && prettier --write",
     "build": "webpack --config webpack.config.js --mode production"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged"
     }
   },
   "lint-staged": {
     "src/*.js": [
-      "prettier --write",
-      "eslint --fix",
+      "prettier --check ./",
+      "eslint src/",
       "jest --findRelatedTests",
       "npm run build"
     ]

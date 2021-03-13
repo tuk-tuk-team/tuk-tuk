@@ -11,7 +11,8 @@ class App extends Component {
 		);
 	}
 }
-let a, b;
-var ddd;
+let a, b, c;
+var b,
+c;
 
 export default App;

@@ -17,8 +17,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react:recommended",
-        "prettier:recommended"
+        "react",
+        "prettier"
     ],
    
     "rules": {
