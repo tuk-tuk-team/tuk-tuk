@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "test": "jest --coverage",
-    "lint": "eslint --ext .js src",
-    "prettier": "prettier",
+    "check-format": "prettier --check ./ && eslint src/",
+    "format": "eslint src/ --fix && prettier",
     "build": "webpack --config webpack.config.js --mode production"
   },
   "husky": {
