@@ -7,7 +7,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -22,7 +23,7 @@
     ],
    
     "rules": {
-        "no-unused-vars": ["error", { "caughtErrorsIgnorePattern": "^ignore" }],
+        "no-unused-vars": "error",
         "indent": [
             "error",
             "tab"
@@ -38,7 +39,7 @@
         "semi": [
             "error",
             "always"
-        ], 
-        "no-console": 2
+        ],
+        "no-console": "error"
     }
 }
