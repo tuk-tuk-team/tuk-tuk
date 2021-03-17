@@ -1,5 +1,4 @@
 const func = () => {
-	return 'it\'s a string';
+	return 'it is a string';
 };
-
 module.exports = func;
