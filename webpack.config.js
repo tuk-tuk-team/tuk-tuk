@@ -1,37 +1,37 @@
 'use strict';
 
 let path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  output: {
-    filename: 'bundle.js',
-    path: __dirname + '/dist'
-  },
-  // watch: true,
+	mode: 'development',
+	entry: './src/index.js',
+	output: {
+		filename: 'bundle.js',
+		path: __dirname + '/dist'
+	},
+	// watch: true,
 
-  devtool: "source-map",
+	devtool: 'source-map',
 
-  module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        }
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
-  ]
+	module: {
+		rules: [
+			{
+				test: /\.m?js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader'
+				}
+			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			}
+		]
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './src/index.html'
+		})
+	]
 };

@@ -1,0 +1,8 @@
+{
+    "src/*.js": [
+      "prettier --check ",
+      "eslint",
+      "jest --findRelatedTests",
+      "npm run build"
+    ]
+}
