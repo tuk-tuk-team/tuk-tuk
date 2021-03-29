@@ -17,7 +17,7 @@ After registration users can fill their profile with some extra information and 
 * First name;
 * Last name;
 * Date of birth;
-* Sex;
+* Gender;
 * Avatar;
 * Phone number;
 * Social medias;
