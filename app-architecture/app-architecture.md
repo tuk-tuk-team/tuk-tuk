@@ -1,9 +1,9 @@
 # App Architecture
 ## ER Diagram
-![image](img/tuk-tuk%20diagram.png)
+![image](img/tuk-tuk-diagram.png)
 
 ## Component Diagram
-![image](img/Tuk-tuk%20Component%20Diagram.png)
+![image](img/tuk-tuk-component-diagram.png)
 
 ## Scenarios
 ### Registration/Login
