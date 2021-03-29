@@ -13,9 +13,9 @@ Our target audience is students but anyone can use the service. We want to creat
 
 ## Technologies
 ### Front-end:
-- HTML
-- CSS
-- JS
+- HTML & CSS
+- JavaScript
+- React
 
 ### Back-end:
 - Node.js
