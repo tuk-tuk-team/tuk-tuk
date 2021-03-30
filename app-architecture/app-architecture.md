@@ -14,6 +14,7 @@ Users can login using their username and password. If they match with the ones i
 After registration users can fill their profile with some extra information and change any info in the profile whenever the user wants to. Data that user can add and change:
 * Username;
 * Password;
+* Email;
 * First name;
 * Last name;
 * Date of birth;
@@ -48,6 +49,9 @@ Information which user can use in second type of posts:
 * Photos of flat;
 * Flat owner's phone number;
 * External link to rented flat.
+
+### Search posts
+Each user can search posts using different filters.
 
 ### Editing posts
 Each user can edit their own posts.
