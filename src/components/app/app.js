@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './app.css';
 import { Container } from 'reactstrap';
 
@@ -8,12 +9,12 @@ import Feed from '../feed';
 class App extends Component {
 	render() {
 		return (
-			<>
+			<Router>
 				<Header />
 				<Container>
-					<Feed />
+					<Route exact path="/posts" component={Feed} />
 				</Container>
-			</>
+			</Router>
 		);
 	}
 }
