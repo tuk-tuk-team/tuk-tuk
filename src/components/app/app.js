@@ -4,7 +4,7 @@ import './app.css';
 import { Container } from 'reactstrap';
 
 import Header from '../header';
-import Feed from '../feed';
+import { FeedPage } from '../pages';
 
 class App extends Component {
 	render() {
@@ -12,7 +12,7 @@ class App extends Component {
 			<Router>
 				<Header />
 				<Container>
-					<Route exact path="/posts" component={Feed} />
+					<Route exact path="/posts" component={FeedPage} />
 				</Container>
 			</Router>
 		);

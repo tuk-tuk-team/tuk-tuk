@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './feed.css';
+import './feed-page.css';
 import SearchForm from '../search-form';
 
-export default class Feed extends Component {
+export default class FeedPage extends Component {
 	render() {
 		return (
 			<div className="feed">
