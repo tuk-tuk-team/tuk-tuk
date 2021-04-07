@@ -7,12 +7,16 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
-		path: __dirname + '/dist'
+		path: __dirname + '/dist',
+		publicPath: '/'
 	},
 	// watch: true,
 
 	devtool: 'source-map',
 
+	devServer: {
+		historyApiFallback: true
+	},
 	module: {
 		rules: [
 			{
