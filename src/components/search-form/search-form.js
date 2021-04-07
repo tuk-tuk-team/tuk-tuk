@@ -26,7 +26,7 @@ export default class SearchForm extends Component {
 										id="type-1"
 										name="post-type"
 										value="flat"
-										checked
+										defaultChecked
 									/>
 									<label htmlFor="type-1">Квартира</label>
 								</div>

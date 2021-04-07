@@ -11,6 +11,10 @@
     font-weight: normal;
 }
 
+body {
+    font-size: 14px;
+}
+
 a {
     color: black;
 }
@@ -35,7 +39,7 @@ select {
 }
 
 select {
-    padding: 7px 5px;
+    padding: 5px 5px;
 }
 
 input[type=radio] {
