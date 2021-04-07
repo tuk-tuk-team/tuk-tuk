@@ -1,24 +1,11 @@
-/*body {
-	background-color: #e2e8f0 !important;
-	font-family: 'Segoe UI' sans-serif;
-}
 
-* {
-    margin: 0;
-    box-sizing: border-box;
-    z-index: 9999;
-    position: relative;
-}*/
-
-
-
-.full-info {
+.post-page-full-info {
 	background-color: #eee;
 	border-radius: 15px;
 }
 
 
-.full-info {
+.post-page-full-info {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -26,7 +13,7 @@
 	height: 850px;
 }
 
-.full-info-row, .full-info-row-description {
+.post-page-full-info-row, .post-page-full-info-row-description {
 	border-bottom: 0.5px solid darkgrey;
 	display: flex;
 	flex-direction: row;
@@ -36,14 +23,14 @@
 	margin-right: 20px !important;
 }
 
-.full-info-row {
+.post-page-full-info-row {
     height: 80px;
 }
 
-.full-info-row-description {
+.post-page-full-info-row-description {
     height: 200px;
 }
 
-.full-info-row h3, .social-row h3, .full-info-row-description h3 {
+.post-page-full-info-row h3, .social-row h3, .post-page-full-info-row-description h3 {
 	font-size: 21px;
 }
