@@ -25,7 +25,7 @@ function FlatView(props) {
 					<img src={img}></img>
 				</div>
 				<div className="post-card-details">
-					<Link to="/posts/4525">
+					<Link to="/posts/1">
 						<p className="title">{title}</p>
 					</Link>
 					<div>
@@ -53,7 +53,7 @@ function GroupView(props) {
 					<img src={groupImg}></img>
 				</div>
 				<div className="post-card-details">
-					<Link to="/posts/4525">
+					<Link to="/posts/1">
 						<p className="title">{title}</p>
 					</Link>
 					<button className="like-post liked">V</button>

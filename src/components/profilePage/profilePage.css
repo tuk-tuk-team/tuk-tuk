@@ -1,4 +1,4 @@
-body {
+/* body {
 	background-color: #e2e8f0 !important;
 	font-family: 'Segoe UI' sans-serif;
 }
@@ -8,18 +8,18 @@ body {
     box-sizing: border-box;
     z-index: 9999;
     position: relative;
-}
+} */
 
-.container {
+/* .container {
 	display: flex;
 	flex-direction: row;
-}
+} */
 
-#root {
+/* #root {
 	margin: 0 auto !important;
 	max-width: 1400px;
 	width: 100%;
-}
+} */
 
 .short-info {
 	display: flex;
