@@ -49,7 +49,7 @@ body {
 	margin-bottom: 5px;
 }
 
-.short-info, .full-info, .interests, .social-info {
+.short-info, .full-info, .interests, .social-info, .liked-posts, .friend-list {
 	background-color: #eee;
 	border-radius: 15px;
 }
@@ -141,6 +141,64 @@ body {
 	justify-content: space-between;
 	margin-left: 20px !important;
 	margin-right: 20px !important;
+}
+
+.liked-posts {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+}
+
+.liked-posts-container {
+    margin-top: 30px;
+}
+
+.post {
+    border-bottom: 1px solid darkgrey;
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+
+.friend-list {
+    height: 650px;
+    margin-top: 30px;
+}
+
+.friend-list-menu {
+    padding-top: 30px !important;
+    margin-left: 40px !important;
+	margin-right: 40px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.friend-list-container {
+    margin-top: 20px;
+}
+
+.friend {
+    margin-bottom: 10px;
+    margin-left: 30px !important;
+	margin-right: 30px !important;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.friend a img {
+    width: 80px;
+    height: 80px;
 }
 
 .text-secondary {

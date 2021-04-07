@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import '../profile/profile.css';
-import './App.css'
+import './App.css';
 
-import Profile from '../profile/profile.js'
+//import Profile from '../profilePage/profilePage.js';
+import PostPage from '../postPage/postPage.js';
 
 class App extends Component {
 	render() {
 		return (
-            <Profile/>
+            <PostPage/>
 		);
 	}
 }
