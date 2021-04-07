@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './app.css';
-import { Container } from 'reactstrap';
+import './App.css';
 
-import Header from '../header';
-import { FeedPage } from '../pages';
+//import Profile from '../profilePage/profilePage.js';
+import PostPage from '../postPage/postPage.js';
 
 class App extends Component {
 	render() {
 		return (
-			<Router>
-				<Header />
-				<Container>
-					<Route exact path="/posts" component={FeedPage} />
-				</Container>
-			</Router>
+            <PostPage/>
 		);
 	}
 }
-
 export default App;
