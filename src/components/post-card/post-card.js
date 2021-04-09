@@ -22,7 +22,7 @@ export default class PostCard extends Component {
 	}
 
 	FlatView(props, classLiked) {
-		let { title, img, price, district } = props;
+		let { title, img, price, district, date } = props;
 		img = img ? img : flatImg;
 	
 		return (
@@ -42,6 +42,9 @@ export default class PostCard extends Component {
 							<div className="district">
 								Р-н <span>{district}</span>
 							</div>
+							<div className="date">
+								{date}
+							</div>
 						</div>
 						<button className={"like-post" + classLiked} onClick={this.onLike}>
 							<i className="fas fa-heart"></i>
@@ -53,7 +56,7 @@ export default class PostCard extends Component {
 	}
 	
 	GroupView(props, classLiked) {
-		const { title } = props;
+		const { title, date } = props;
 	
 		return (
 			<Col xl={4} lg={6}>
@@ -65,6 +68,11 @@ export default class PostCard extends Component {
 						<Link to="/posts/1">
 							<p className="title">{title}</p>
 						</Link>
+						<div>
+							<div className="date">
+								{date}
+							</div>
+						</div>
 						<button className={"like-post" + classLiked} onClick={this.onLike}>
 							<i className="fas fa-heart"></i>
 						</button>

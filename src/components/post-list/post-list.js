@@ -19,6 +19,20 @@ export default class PostList extends Component {
 							type="group"
 							title="Шукаю позитивну людину, разом знайдему квартиру"
 						/>
+						<PostCard
+							type="flat"
+							title="Однокомнатная квартира, давайте вместе жить"
+							price="4210"
+							district="Голосіївський"
+							img=""
+						/>
+						<PostCard
+							type="flat"
+							title="Співмешканець в двокімнатну квартиру!"
+							price="6700"
+							district="Печерський"
+							img="https://via.placeholder.com/2000x1050"
+						/>
 					</Row>
 				</ul>
 			</div>
