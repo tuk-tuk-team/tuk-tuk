@@ -4,25 +4,15 @@ import { Col } from 'reactstrap';
 import './post-card.css';
 import groupImg from './img/group.jpg';
 import flatImg from './img/flat.jpg';
+import BtnLike from '../btn-like';
 
 export default class PostCard extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			liked: false
-		};
-
-		this.onLike = this.onLike.bind(this);
 	}
 
-	onLike() {
-		this.setState(({liked}) => ({
-			liked: !liked
-		}));
-	}
-
-	FlatView(props, classLiked) {
-		let { title, img, price, district, date } = props;
+	FlatView(props) {
+		let { title, img, price, district, date, liked, onLike } = props;
 		img = img ? img : flatImg;
 	
 		return (
@@ -46,17 +36,15 @@ export default class PostCard extends Component {
 								{date}
 							</div>
 						</div>
-						<button className={"like-post" + classLiked} onClick={this.onLike}>
-							<i className="fas fa-heart"></i>
-						</button>
+						<BtnLike onLike={onLike} liked={liked} />
 					</div>
 				</li>
 			</Col>
 		);
 	}
 	
-	GroupView(props, classLiked) {
-		const { title, date } = props;
+	GroupView(props) {
+		const { title, date, liked, onLike } = props;
 	
 		return (
 			<Col xl={4} lg={6}>
@@ -73,9 +61,7 @@ export default class PostCard extends Component {
 								{date}
 							</div>
 						</div>
-						<button className={"like-post" + classLiked} onClick={this.onLike}>
-							<i className="fas fa-heart"></i>
-						</button>
+						<BtnLike onLike={onLike} liked={liked} />
 					</div>
 				</li>
 			</Col>
@@ -84,13 +70,11 @@ export default class PostCard extends Component {
 
 	render() {
 		const { type } = this.props;
-		const { liked } = this.state;
-        const classLiked = liked ? ' liked' : '';
 
 		if (type === 'flat') {
-			return this.FlatView(this.props, classLiked);
+			return this.FlatView(this.props);
 		} else {
-			return this.GroupView(this.props, classLiked);
+			return this.GroupView(this.props);
 		}
 	}
 }
