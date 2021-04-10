@@ -11,70 +11,69 @@ export default class PostCard extends Component {
 		super(props);
 	}
 
-	FlatView(props) {
-		let { title, img, price, district, date, liked, onLike } = props;
-		img = img ? img : flatImg;
-	
-		return (
-			<Col xl={4} lg={6}>
-				<li className="post-card">
-					<div className="post-img">
-						<img src={img}></img>
-					</div>
-					<div className="post-card-details">
-						<Link to="/posts/1">
-							<p className="title">{title}</p>
-						</Link>
-						<div>
-							<div className="price">
-								Ціна: <span>{price} &#8372;</span>
-							</div>
-							<div className="district">
-								Р-н <span>{district}</span>
-							</div>
-							<div className="date">
-								{date}
-							</div>
-						</div>
-						<BtnLike onLike={onLike} liked={liked} />
-					</div>
-				</li>
-			</Col>
-		);
-	}
-	
-	GroupView(props) {
-		const { title, date, liked, onLike } = props;
-	
-		return (
-			<Col xl={4} lg={6}>
-				<li className="post-card group">
-					<div className="post-img">
-						<img src={groupImg}></img>
-					</div>
-					<div className="post-card-details">
-						<Link to="/posts/1">
-							<p className="title">{title}</p>
-						</Link>
-						<div>
-							<div className="date">
-								{date}
-							</div>
-						</div>
-						<BtnLike onLike={onLike} liked={liked} />
-					</div>
-				</li>
-			</Col>
-		);
-	}
-
 	render() {
 		const { type } = this.props;
+        const view = type === 'flat' ? flatView(this.props) : groupView(this.props);
 
-		if (type === 'flat') {
-			return this.FlatView(this.props);
-		} else {
-			return this.GroupView(this.props);
-		}
+        return (
+            <Col xl={4} lg={6}>
+                <li className="post-card">
+                    {view}
+                </li>
+            </Col>
+        )
 	}
+}
+
+function flatView(props) {
+    let { title, img, price, district, date, liked, onLike } = props;
+    img = img ? img : flatImg;
+
+    return (
+        <>
+            <div className="post-img">
+                <img src={img}></img>
+            </div>
+            <div className="post-card-details">
+                <Link to="/posts/1">
+                    <p className="title">{title}</p>
+                </Link>
+                <div>
+                    <div className="price">
+                        Ціна: <span>{price} &#8372;</span>
+                    </div>
+                    <div className="district">
+                        Р-н <span>{district}</span>
+                    </div>
+                    <div className="date">
+                        {date}
+                    </div>
+                </div>
+                <BtnLike liked={liked} onLike={onLike} />
+            </div>
+        </>
+    );
+}
+
+function groupView(props) {
+    const { title, date, liked, onLike } = props;
+
+    return (
+        <>
+            <div className="post-img">
+                <img src={groupImg}></img>
+            </div>
+            <div className="post-card-details">
+                <Link to="/posts/1">
+                    <p className="title">{title}</p>
+                </Link>
+                <div>
+                    <div className="date">
+                        {date}
+                    </div>
+                </div>
+                <BtnLike liked={liked} onLike={onLike} />
+            </div>
+        </>
+    );
 }
