@@ -85,7 +85,7 @@ export default class PostCard extends Component {
 	render() {
 		const { type } = this.props;
 		const { liked } = this.state;
-		const classLiked = liked ? ' liked' : '';
+        const classLiked = liked ? ' liked' : '';
 
 		if (type === 'flat') {
 			return this.FlatView(this.props, classLiked);

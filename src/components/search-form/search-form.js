@@ -28,7 +28,7 @@ export default class SearchForm extends Component {
 										value="flat"
 										defaultChecked
 									/>
-									<label htmlFor="type-1">Квартира</label>
+									<label htmlFor="type-1">Пошук співмешканця</label>
 								</div>
 								<div className="form-radio">
 									<input
@@ -37,7 +37,7 @@ export default class SearchForm extends Component {
 										name="post-type"
 										value="group"
 									/>
-									<label htmlFor="type-2">Група</label>
+									<label htmlFor="type-2">Пошук групи</label>
 								</div>
 							</div>
 						</Col>
@@ -61,7 +61,7 @@ export default class SearchForm extends Component {
 						</Col>
 						<Col lg={3} md={6}>
 							<div className="filter-block">
-								<h4>Розташування</h4>
+								<h4>Адреса</h4>
 								<input type="text" placeholder="Вулиця..." />
 							</div>
 						</Col>
