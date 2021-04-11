@@ -19,6 +19,7 @@ Our target audience is students but anyone can use the service. We want to creat
 
 ### Back-end:
 - Node.js
+- Fastify
 - PostgreSQL
 
 More can be added soon.
