@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import './post-page.css';
 
 import PostDetails from '../post-details';
-
 
 class PostPage extends Component {
 	render() {

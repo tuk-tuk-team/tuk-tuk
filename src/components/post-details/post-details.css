@@ -1,16 +1,16 @@
-.post-page-container {
+.post-details-container {
     margin-top: 2rem;
 }
 
-.post-page-container h1 {
+.post-details-container h1 {
     margin-bottom: 2rem;
 }
 
-.post-page-full-info {
+.post-details-full-info {
     margin-top: 2rem;
 }
 
-.post-page-info {
+.post-details-info {
     padding: 20px;
     border: 1px solid #dfdfdf;
 	border-radius: 5px;
@@ -23,13 +23,13 @@
     align-items: center;
 }
 
-.post-page-info .user-info {
+.post-details-info .user-info {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.post-page-info .user-info .avatar {
+.post-details-info .user-info .avatar {
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -43,7 +43,7 @@
     object-fit: cover;
 }
 
-.post-page-info .details {
+.post-details-info .details {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -55,7 +55,7 @@
     margin-bottom: 10px;
 }
 
-.post-page-info h4 {
+.post-details-info h4 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import './post-details.css';
+
 export default class PostDetails extends Component {
     constructor(props){
         super(props);
@@ -10,7 +12,7 @@ export default class PostDetails extends Component {
         const { type } = this.props;
         const view = type === 'Пошук співмешканця' ? flatView(this.props) : groupView(this.props);
         return (
-            <div className = 'post-page-container'>
+            <div className = 'post-details-container'>
                 <h1>Повна інформація</h1>
                 {view}
             </div>
@@ -31,7 +33,7 @@ function flatView(props) {
     } = props;
 
     return (
-        <div className = 'post-page-info'>
+        <div className = 'post-details-info'>
             <div className="flex-wrapper">
                 <div className="user-info">
                     <div className="avatar">
@@ -86,7 +88,7 @@ function groupView(props) {
     } = props;
 
     return (
-        <div className="post-page-info">
+        <div className="post-details-info">
             <div className="flex-wrapper">
                 <div className="user-info">
                     <div className="avatar">
