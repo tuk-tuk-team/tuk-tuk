@@ -1,2 +1,2 @@
-import PhotosPost from './photos-post';
+import PhotosPost from './post-photos';
 export default PhotosPost;

@@ -1,6 +1,5 @@
-import React from 'react';
 import React, {Component} from 'react';
-import './photos-post.css';
+import './post-photos.css';
 
 
 export default class PhotosPost extends Component {

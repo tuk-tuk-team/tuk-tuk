@@ -13,6 +13,8 @@ class PostPage extends Component {
             ownerPhoneNumber = '+380956832123'
             price = '4000'
             date = '13 березня 2021 р.'
+            involvedUsers = {[{id: 'asadd', avatar: 'avatar2.png', username: 'zirael'}, {id: 'asdscadd', avatar: 'avatar2.png', username: 'leaf'}, {id: 'asbnbfadd', avatar: 'avatar2.png', username: 'reaper'}]}
+            photos = {[{id: 'adosddjia', src: '/images/1.jpg'}, {id: 'asdscadgngnd', src: '/images/2.jpg'}, {id: 'asbnbfadsdad', src: '/images/3.jpg'}]}
         />
 	}
 }
