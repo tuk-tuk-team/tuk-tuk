@@ -7,6 +7,8 @@ import Header from '../header';
 import { FeedPage } from '../pages';
 import { ProfilePage } from '../pages';
 import { PostPage } from '../pages';
+import { Login } from '../pages';
+
 
 class App extends Component {
 	render() {
@@ -18,6 +20,7 @@ class App extends Component {
 						<Route exact path="/" component={FeedPage} />
 						<Route exact path="/profile" component={ProfilePage} />
 						<Route exact path="/posts/1" component={PostPage} />
+						<Route exact path="/login" component={Login} />
 					</Container>
 				</Router>
 			</>
