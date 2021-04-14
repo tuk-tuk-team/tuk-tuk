@@ -15,6 +15,9 @@ module.exports = {
 	devtool: 'source-map',
 
 	devServer: {
+        proxy: {
+            '/': 'http://localhost:4000',
+        },
 		historyApiFallback: true
 	},
 	module: {

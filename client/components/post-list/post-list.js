@@ -1,67 +1,75 @@
 import React, { Component } from 'react';
 import { Row } from 'reactstrap';
 import PostCard from '../post-card';
+import Spinner from '../spinner';
+
+import Service from '../../services';
 
 export default class PostList extends Component {
     constructor(props) {
         super(props);
+        this.service = new Service();
         this.state = {
-            posts: []
+            posts: [],
+            loading: true,
+            error: false
         };
 
         this.onLike = this.onLike.bind(this);
     }
 
     componentDidMount() {
-        this.setState({
-            posts: [
-                {
-                    id: 0,
-                    type: "flat",
-                    title: "Шукаю співмешканця, будемо круто жити",
-                    price: "5600",
-                    district: "Шевченківський",
-                    img: "https://via.placeholder.com/1920x1080",
-                    liked: false
-                },
-                {
-                    id: 1,
-                    type: "group",
-					title: "Шукаю позитивну людину, разом знайдему квартиру",
-                    liked: false
+        this.service.getAllPosts()
+            .then(res => {
+                if (!res.error) {
+                    return this.setState({
+                        posts: res.map(item => {
+                            const newItem = {...item, liked: false};
+                            return newItem;
+                        }),
+                        loading: false
+                    });
+                } else {
+                    this.setState({
+                        error: true,
+                        loading: false,
+                        errorMessage: 'Оголошення відсутні'
+                    });
                 }
-            ]
-        });
+            })
     }
 
     onLike(id) {
         this.setState(({posts}) => {
             const clonedPosts = [...posts];
-            clonedPosts[id].liked = !clonedPosts[id].liked;
-            return clonedPosts;
+            const idx = clonedPosts.findIndex(item => item.postId === id);
+            const newPost = { ...clonedPosts[idx], liked: !clonedPosts[idx].liked };
+            clonedPosts[idx] = newPost;
+            return {
+                posts: clonedPosts
+            };
         });
     }
 
 	render() {
+        const content = this.state.loading ? <Spinner /> : this.state.posts.map(post => {
+            const { postId, type, title, price, district, img, liked } = post;
+            return <PostCard
+                key={postId}
+                type={type}
+                title={title}
+                price={price}
+                district={district}
+                img={img}
+                liked={liked}
+                onLike={() => this.onLike(postId)}
+            />
+        });
 		return (
 			<div className="feed-posts-block">
 				<ul className="post-list">
 					<Row>
-                        {
-                            this.state.posts.map(post => {
-                                const { id, type, title, price, district, img, liked } = post;
-                                return <PostCard
-                                    key={id}
-                                    type={type}
-                                    title={title}
-                                    price={price}
-                                    district={district}
-                                    img={img}
-                                    liked={liked}
-                                    onLike={() => this.onLike(id)}
-                                />
-                            })
-                        }
+                        {content}
 					</Row>
 				</ul>
 			</div>

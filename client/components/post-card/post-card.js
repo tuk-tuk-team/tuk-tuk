@@ -13,7 +13,7 @@ export default class PostCard extends Component {
 
 	render() {
 		const { type } = this.props;
-        const view = type === 'flat' ? flatView(this.props) : groupView(this.props);
+        const view = type === 1 ? flatView(this.props) : groupView(this.props);
 
         return (
             <Col xl={4} lg={6}>

@@ -1,7 +1,7 @@
 async function routes(fastify, options) {
     fastify.get('/', async (request, reply) => {
         try {
-            const res = await fastify.db.query(`SELECT * FROM posts`);
+            const res = await fastify.db.query(`SELECT * FROM posts ORDER BY "date" DESC`);
             if (res.rows.length) {
                 reply.send(res.rows);
             } else {
@@ -15,7 +15,7 @@ async function routes(fastify, options) {
     fastify.get('/:id', async (request, reply) => {
         try {
             const res = await fastify.db.query(
-                `SELECT * FROM posts WHERE "PostID" = $1`,
+                `SELECT * FROM posts WHERE "postId" = $1`,
                 [request.params.id]
             );
             if (res.rows.length) {
