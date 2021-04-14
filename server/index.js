@@ -1,6 +1,13 @@
+require('dotenv').config();
 const fastify = require('fastify')({ logger: true });
 
-fastify.get('/', (reequest, reply) => {
+const dbConn = require('./plugins/db');
+const postRoutes = require('./routes/postRoutes');
+
+fastify.register(dbConn);
+fastify.register(postRoutes, { prefix: '/posts' });
+
+fastify.get('/', (request, reply) => {
     reply.send({ hello: 'world!' });
 });
 
