@@ -89,6 +89,21 @@ async function routes(fastify, options) {
             console.log(e);
         }
     });
+
+    fastify.delete('/delete', async (request, reply) => {
+        try {
+            const { postId } = JSON.parse(request.body);
+            const res = await fastify.db.query(`
+                DELETE FROM posts
+                WHERE "postId" = $1
+                RETURNING *
+            `, [postId]);
+
+            reply.send(res.rows[0]);
+        } catch (e) {
+            console.log(e);
+        }
+    });
 }
 
 module.exports = routes;
