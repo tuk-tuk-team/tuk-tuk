@@ -55,6 +55,40 @@ async function routes(fastify, options) {
             console.log(e);
         }
     });
+
+    fastify.put('/edit', async (request, reply) => {
+        try {
+            const {
+                postId,
+                type,
+                title,
+                description,
+                district,
+                location,
+                ownerPhone,
+                price,
+                originLink
+            } = JSON.parse(request.body);
+
+            const res = await fastify.db.query(`
+                UPDATE posts SET
+                "type" = $1,
+                "title" = $2,
+                "description" = $3,
+                "district" = $4,
+                "location" = $5,
+                "ownerPhone" = $6,
+                "price" = $7,
+                "originLink" = $8
+                WHERE "postId" = $9
+                RETURNING *
+            `, [type, title, description, district, location, ownerPhone, price, originLink, postId]);
+
+            reply.send(res.rows[0]);
+        } catch (e) {
+            console.log(e);
+        }
+    });
 }
 
 module.exports = routes;
