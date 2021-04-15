@@ -24,7 +24,7 @@ export default class SearchForm extends Component {
 									<input
 										type="radio"
 										id="type-1"
-										name="post-type"
+										name="postType"
 										value="flat"
 										defaultChecked
 									/>
@@ -34,7 +34,7 @@ export default class SearchForm extends Component {
 									<input
 										type="radio"
 										id="type-2"
-										name="post-type"
+										name="postType"
 										value="group"
 									/>
 									<label htmlFor="type-2">Пошук групи</label>
@@ -62,7 +62,10 @@ export default class SearchForm extends Component {
 						<Col lg={3} md={6}>
 							<div className="filter-block">
 								<h4>Адреса</h4>
-								<input type="text" placeholder="Вулиця..." />
+								<input
+                                    type="text"
+                                    name="location"
+                                    placeholder="Вулиця..." />
 							</div>
 						</Col>
 						<Col lg={3} md={6}>
@@ -71,7 +74,7 @@ export default class SearchForm extends Component {
 								<div className="price-block">
 									<input
 										className="price-range"
-										name="min-price"
+										name="minPrice"
 										type="number"
 										placeholder="Від"
 										defaultValue="0"
@@ -80,7 +83,7 @@ export default class SearchForm extends Component {
 									<span>-</span>
 									<input
 										className="price-range"
-										name="max-price"
+										name="maxPrice"
 										type="number"
 										placeholder="До"
 										min="0"

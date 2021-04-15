@@ -4,10 +4,7 @@ import { Container } from 'reactstrap';
 import './app.css';
 
 import Header from '../header';
-import { FeedPage } from '../pages';
-import { ProfilePage } from '../pages';
-import { PostPage } from '../pages';
-import { Login } from '../pages';
+import { FeedPage, ProfilePage, PostPage, NewPostPage, Login } from '../pages';
 
 
 class App extends Component {
@@ -17,10 +14,12 @@ class App extends Component {
 				<Router>
 					<Header />
 					<Container>
-						<Route exact path="/" component={FeedPage} />
-						<Route exact path="/profile" component={ProfilePage} />
+                        <Route exact path="/" render={() => <h1 className="mt-5">Welcome to Tuk-Tuk</h1>} />
+                        <Route exact path="/login" component={Login} />
+						<Route exact path="/posts" component={FeedPage} />
+                        <Route exact path="/posts/add" component={NewPostPage} />
 						<Route exact path="/posts/1" component={PostPage} />
-						<Route exact path="/login" component={Login} />
+                        <Route exact path="/profile" component={ProfilePage} />
 					</Container>
 				</Router>
 			</>
