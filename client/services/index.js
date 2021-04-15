@@ -10,10 +10,10 @@ export default class Service {
     }
 
     async getAllPosts() {
-        return await this.getData('/posts');
+        return await this.getData('/api/posts');
     }
 
     async getPostById(id) {
-        return await this.getData(`/posts/${id}`);
+        return await this.getData(`/api/posts/${id}`);
     }
 }

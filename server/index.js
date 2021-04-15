@@ -5,7 +5,7 @@ const dbConn = require('./plugins/db');
 const postRoutes = require('./routes/postRoutes');
 
 fastify.register(dbConn);
-fastify.register(postRoutes, { prefix: '/posts' });
+fastify.register(postRoutes, { prefix: '/api/posts' });
 
 fastify.get('/', (request, reply) => {
     reply.send({ hello: 'world!' });
