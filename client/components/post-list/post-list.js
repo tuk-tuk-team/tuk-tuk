@@ -56,6 +56,7 @@ export default class PostList extends Component {
             const { postId, type, title, price, district, img, liked } = post;
             return <PostCard
                 key={postId}
+                id={postId}
                 type={type}
                 title={title}
                 price={price}

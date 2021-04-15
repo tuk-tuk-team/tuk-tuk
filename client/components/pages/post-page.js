@@ -1,21 +1,75 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import Service from '../../services';
 
 import PostDetails from '../post-details';
+import Spinner from '../spinner';
 
-class PostPage extends Component {
+export default class PostPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            error: false
+        }
+        this.service = new Service();
+    }
+
+    componentDidMount() {
+        this.service.getPostById(this.props.match.params.id)
+            .then(data => {
+                if (!data.error) {
+                    this.setState({
+                        ...data,
+                        loading: false
+                    });
+                } else {
+                    this.setState({
+                        error: true,
+                        loading: false,
+                        errorMessage: 'Оголошення не знайдено'
+                    })
+                }
+            });
+    }
+
 	render() {
+        if (this.state.loading) {
+            return (
+                <div className="mt-5">
+                    <Spinner />
+                </div>
+            )
+        }
+
+        const {
+            postId,
+            type,
+            title,
+            description,
+            district,
+            location,
+            ownerPhone,
+            price,
+            originLink,
+            date
+        } = this.state;
+        
 		return <PostDetails
-            type = 'Пошук співмешканця'
-            title = 'Шукаю співмешканця в однокімнатну квартиру' 
-            description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-            district = 'Печерський'
-            location = 'Какая-то улица 26/45'
-            ownerPhoneNumber = '+380956832123'
-            price = '4000'
-            date = '13 березня 2021 р.'
+            postId={postId}
+            type={type}
+            title={title}
+            description={description}
+            district={district}
+            location={location}
+            ownerPhone={ownerPhone}
+            price={price}
+            originLink={originLink}
+            date={date}
             involvedUsers = {[{id: 'asadd', avatar: 'avatar2.png', username: 'zirael'}, {id: 'asdscadd', avatar: 'avatar2.png', username: 'leaf'}, {id: 'asbnbfadd', avatar: 'avatar2.png', username: 'reaper'}]}
             photos = {[{id: 'adosddjia', src: '/images/1.jpg'}, {id: 'asdscadgngnd', src: '/images/2.jpg'}, {id: 'asbnbfadsdad', src: '/images/3.jpg'}]}
         />
 	}
 }
-export default PostPage;
+
+// export default withRouter(PostPage);

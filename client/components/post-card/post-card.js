@@ -26,7 +26,7 @@ export default class PostCard extends Component {
 }
 
 function flatView(props) {
-    let { title, img, price, district, date, liked, onLike } = props;
+    let { id, title, img, price, district, date, liked, onLike } = props;
     img = img ? img : flatImg;
 
     return (
@@ -35,7 +35,7 @@ function flatView(props) {
                 <img src={img}></img>
             </div>
             <div className="post-card-details">
-                <Link to="/posts/1">
+                <Link to={`/posts/${id}`}>
                     <p className="title">{title}</p>
                 </Link>
                 <div>
@@ -56,7 +56,7 @@ function flatView(props) {
 }
 
 function groupView(props) {
-    const { title, date, liked, onLike } = props;
+    const { id, title, date, liked, onLike } = props;
 
     return (
         <>
@@ -64,7 +64,7 @@ function groupView(props) {
                 <img src={groupImg}></img>
             </div>
             <div className="post-card-details">
-                <Link to="/posts/1">
+                <Link to={`/posts/${id}`}>
                     <p className="title">{title}</p>
                 </Link>
                 <div>

@@ -5,6 +5,7 @@ import './post-details.css';
 
 import InvolvedUsers from '../post-involved-users';
 import PhotosPost from '../post-photos';
+import { formatDate } from '../../modules';
 
 const flatView = (props) => {
     const {
@@ -13,8 +14,9 @@ const flatView = (props) => {
         description,
         district,
         location,
-        ownerPhoneNumber,
+        ownerPhone,
         price,
+        originLink,
         date,
         involvedUsers,
         photos
@@ -32,7 +34,7 @@ const flatView = (props) => {
                             <span>John Week</span>
                         </Link>
                     </div>
-                    <div>{date}</div>
+                    <div>{formatDate(date)}</div>
                 </div>
                 <hr></hr>
                 <div className="details">
@@ -41,7 +43,7 @@ const flatView = (props) => {
                     </div>
                     <div className="type">
                         <h4>Тип оголошення</h4>
-                        <span>{type}</span>
+                        <span>Пошук співмешканця</span>
                     </div>
                     <div className="description">
                         <h4>Опис</h4>
@@ -57,12 +59,24 @@ const flatView = (props) => {
                     </div>
                     <div className = "phone-number">
                         <h4>Номер телефону власника квартири</h4>
-                        <span>{ownerPhoneNumber}</span>
+                        <span>{ownerPhone}</span>
                     </div>
                     <div className="price">
                         <h4>Ціна</h4>
                         <span>{price} &#8372;</span>
                     </div>
+                    {
+                        (() => {
+                            if (originLink) {
+                                return (
+                                    <div className="originLink">
+                                        <h4>Оригінальне оголошення</h4>
+                                        <a href={originLink} target="_blank">{originLink}</a>
+                                    </div>
+                                )
+                            }
+                        })()
+                    }
                 </div>
             </div>
             <PhotosPost photos = {photos}/>
@@ -91,7 +105,7 @@ const groupView = (props) => {
                         </div>
                         <span>John Week</span>
                     </div>
-                    <div>{date}</div>
+                    <div>{formatDate(date)}</div>
                 </div>
                 <hr></hr>
                 <div className="details">
@@ -100,7 +114,7 @@ const groupView = (props) => {
                     </div>
                     <div className="type">
                         <h4>Тип оголошення</h4>
-                        <span>{type}</span>
+                        <span>Пошук групи</span>
                     </div>
                     <div className="description">
                         <h4>Опис</h4>
@@ -121,7 +135,7 @@ export default class PostDetails extends Component {
 
     render() {
         const { type } = this.props;
-        const view = type === 'Пошук співмешканця' ? flatView(this.props) : groupView(this.props);
+        const view = type === 1 ? flatView(this.props) : groupView(this.props);
         return (
             <div className = 'post-details-container'>
                 <h1>Повна інформація</h1>
