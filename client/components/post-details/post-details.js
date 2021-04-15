@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 
 import './post-details.css';
 
-import InvolvedUsers from '../post-involved-users';
 import PhotosPost from '../post-photos';
 import { formatDate } from '../../modules';
 
 const flatView = (props) => {
     const {
-        type,
         title,
         description,
         district,
@@ -18,7 +16,6 @@ const flatView = (props) => {
         price,
         originLink,
         date,
-        involvedUsers,
         photos
     } = props;
 
@@ -80,7 +77,6 @@ const flatView = (props) => {
                 </div>
             </div>
             <PhotosPost photos = {photos}/>
-            <InvolvedUsers users = {involvedUsers}/>
         </div>
     );
 }
@@ -88,11 +84,9 @@ const flatView = (props) => {
 const groupView = (props) => {
 
     const {
-        type,
         title,
         description,
         date,
-        involvedUsers
     } = props;
 
     return (
@@ -122,7 +116,6 @@ const groupView = (props) => {
                     </div>
                 </div>
             </div>
-            <InvolvedUsers users = {involvedUsers}/>
         </div>
     );
 }
