@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default class ShortInfo extends Component {
     constructor(props) {
@@ -10,13 +11,19 @@ export default class ShortInfo extends Component {
         return (
             <div className = 'profile-page-short-info d-flex flex-column align-items-center text-center'>
                 <img src = {'/images/' + avatar}></img>
-                <h2 className = 'profile-page-username'>{userName}</h2>
-                <span className = 'profile-page-about'>{about}</span>
-                <span className = 'profile-page-rating'>Рейтинг: {rating}</span>
+                <div>
+                    <h3 className = 'profile-page-username'>{userName}</h3>
+                </div>
+                <div>
+                    <h5 className = 'profile-page-about'>{about}</h5>
+                </div>
+                <div>
+                    <h5 className = 'profile-page-rating'>Рейтинг: {rating}</h5>
+                </div>
                 <Button color = 'primary'>Додати до списку друзів</Button>
-                <a href = "/editProfile">
+                <Link to={'/editProfile'}>
                     <Button className = 'mt-2' color = 'secondary'>Редагувати профіль</Button>
-                </a>
+                </Link>
             </div>
         );
     }

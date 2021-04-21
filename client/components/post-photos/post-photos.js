@@ -13,7 +13,7 @@ export default class PhotosPost extends Component {
         this.prevSlide = this.prevSlide.bind(this);
     }
 
-    nextSlide()  {
+    nextSlide() {
         const {photos} = this.props;
         this.setState(({current}) => ({
             current: current === photos.length - 1 ? 0 : current + 1,
@@ -35,19 +35,19 @@ export default class PhotosPost extends Component {
                 <h2>Фотографії</h2>
                 <div className = 'slider'>
                     <i className="fas fa-arrow-alt-circle-left left-arrow" onClick = {this.prevSlide}></i>
-                    <i className="fas fa-arrow-alt-circle-right right-arrow" onClick = {this.nextSlide}></i>
                     {photos.map((photo, index) => {
                         return (
                             <div key = {photo.id} className = {index === current ? 'photo active' : 'photo'}>
                                 {index === current && (
                                     <div className = 'slide'>
-                                        <img src = {photo.src} className = 'image'></img>
+                                        <img src = {photo.src} className = 'image img-fluid'></img>
                                         <span>{index + 1}/{photos.length}</span>
                                     </div>
                                 )}
                             </div>
                         );
                     })}
+                    <i className="fas fa-arrow-alt-circle-right right-arrow" onClick = {this.nextSlide}></i>
                 </div>
             </div>
         );

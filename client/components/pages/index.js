@@ -5,6 +5,7 @@ import Login from './login';
 import SignUpMenu from './sign-up-menu';
 import EditProfile from './profile-edit-page';
 import NewPostPage from './new-post-page';
+import EditPost from './edit-post-page';
 
 
 export {
@@ -14,5 +15,6 @@ export {
     NewPostPage,
 	Login,
 	SignUpMenu,
-	EditProfile
+	EditProfile,
+	EditPost
 };

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 import './post-details.css';
 
 import PhotosPost from '../post-photos';
 import { formatDate } from '../../modules';
+import BtnLike from '../btn-like';
 
 const flatView = (props) => {
     const {
@@ -127,11 +129,19 @@ export default class PostDetails extends Component {
     }
 
     render() {
-        const { type } = this.props;
+        const { postId, type, liked, onLike } = this.props;
         const view = type === 1 ? flatView(this.props) : groupView(this.props);
         return (
             <div className = 'post-details-container'>
-                <h1>Повна інформація</h1>
+                <div className = "post-page-header">
+                    <h1>Повна інформація</h1>
+                    <div className = "btns-page">
+                        <Link to={postId + '/edit'}>
+                            <Button className = "btn btn-primary">Редагувати пост</Button>
+                        </Link>
+                        <BtnLike liked = {liked} onLike = {onLike}/>
+                    </div>
+                </div>
                 {view}
             </div>
         );

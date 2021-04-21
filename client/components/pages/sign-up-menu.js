@@ -37,9 +37,12 @@ export default class SignUpMenu extends Component {
         return(
             <div className = 'sign-up-menu'>
                 <div className = 'sign-up-menu-container'>
-                    <div className = 'title'>Зареєструвати аккаунт</div>
+                    <div className = 'title'>
+                        <h2>Зареєструвати аккаунт</h2>
+                    </div>
                     <hr></hr>
-                    <div className = 'firstname-input'>
+                    <div className = 'firstname-input post-input-block'>
+                        <h4>Введіть Ваше ім`я</h4>
                         <input
                             name = "firstName"
                             placeholder = "Введіть Ваше ім`я" 
@@ -48,7 +51,8 @@ export default class SignUpMenu extends Component {
                             onChange={this.handlerInput}
                         ></input>
                     </div>
-                    <div className = 'lastname-input'>
+                    <div className = 'lastname-input post-input-block'>
+                        <h4>Введіть Ваше прізвище</h4>
                         <input 
                             name = "lastName"
                             placeholder = "Введіть Ваше прізвище" 
@@ -57,7 +61,8 @@ export default class SignUpMenu extends Component {
                             onChange={this.handlerInput}
                         ></input>
                     </div>
-                    <div className = 'username-input'>
+                    <div className = 'username-input post-input-block'>
+                        <h4>Введіть Ваш Username</h4>
                         <input
                             name = "userName"
                             placeholder = "Введіть ім`я аккаунта" 
@@ -66,7 +71,7 @@ export default class SignUpMenu extends Component {
                             onChange={this.handlerInput}
                         ></input>
                     </div>
-                    <div className = 'choose-gender'>
+                    <div className = 'choose-gender post-input-block'>
 						<h4>Виберіть Вашу стать</h4>
                         <div className="form-radio">
                             <input
@@ -74,12 +79,11 @@ export default class SignUpMenu extends Component {
                                 id="gender-type-1"
                                 name="gender"
                                 value="Жіноча"
-                                defaultChecked
                                 onChange={this.handlerInput}
                             />
                             <label>Жіноча</label>
                         </div>
-                        <div className="form-radio">
+                        <div className="form-radio ">
                             <input
                                 type="radio"
                                 id="gender-type-2"
@@ -90,8 +94,10 @@ export default class SignUpMenu extends Component {
                             <label>Чоловіча</label>
                         </div>
                     </div>
-                    <div className = 'email-input'>
+                    <div className = 'post-input-block'>
+                        <h4>Введіть Ваш email</h4>
                         <input
+                            className = 'email-input'
                             name = "email"
                             placeholder = 'Введіть Ваш Email' 
                             type = "email"
@@ -99,7 +105,8 @@ export default class SignUpMenu extends Component {
                             onChange={this.handlerInput}
                         ></input>
                     </div>
-                    <div className = 'phone-input'>
+                    <div className = 'phone-input post-input-block'>
+                        <h4>Введіть Ваш номер телефону</h4>
                         <input
                             name = "phone"
                             placeholder = 'Введіть Ваш номер телефону' 
@@ -108,8 +115,10 @@ export default class SignUpMenu extends Component {
                             onChange={this.handlerInput}
                         ></input>
                     </div>
-                    <div className = 'date-of-birth-input'>
+                    <div className = 'post-input-block'> 
+                        <h4>Виберіть Вашу дату народження</h4>
                         <input
+                            className = 'date-of-birth-input'
                             name = "dateOfBirth"
                             placeholder = 'Введіть Вашу дату народження' 
                             type = "date"
@@ -117,8 +126,10 @@ export default class SignUpMenu extends Component {
                             onChange={this.handlerInput}
                         ></input>
                     </div>
-                    <div className = 'password-input'>
+                    <div className = 'post-input-block'>
+                        <h4>Введіть пароль</h4>
                         <input
+                            className = 'password-input'
                             name = "password"
                             placeholder = 'Введіть пароль' 
                             type = "password"

@@ -11,7 +11,7 @@ export default class Interests extends Component {
                 <h2>Інтереси</h2>
                 <div className = 'profile-page-interests-div'>
                     {interests.map((item) => 
-                        <div key = {item.id} className = 'profile-page-interest-tag'>
+                        <div key = {item.id} className = 'profile-page-interest-tag btn'>
                             <span>{item.value}</span>
                         </div>
                     )}

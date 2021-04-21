@@ -1,6 +1,7 @@
 .container-login-page{
-    width: 500px;
-    height: 700px;
+    text-align: center;
+    padding-top: 70px;
+    width: 60%;
     margin-top: 100px;
     margin-bottom: 70px;
     background-color: #FFD15B;
@@ -9,14 +10,14 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 100px;
 }
 
-.container-login-page h2 {
-    margin-top: 70px;
-}
 
 .login-inputs {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,21 +25,20 @@
 }
 
 .login-inputs input {
-    width: 450px;
-    height: 60px;
-    padding-left: 10px;
+    width: 80%;
+    padding: 25px;
     margin-top: 40px;
     border: 1px solid darkgrey;
     border-radius: 10px;
-}
-
-.login-inputs a, .login-inputs span {
-    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .login-inputs a {
+    font-size: 15px;
     color: #1E90FF;
-}
+};
+
 
 .no-acc a {
     margin-left: 10px;

@@ -22,6 +22,19 @@ export default class Service {
         return await response.json();
     }
 
+    async editData(url, body) {
+        const response = await fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Couldn't edit ${url}. Status: ${response.status} - ${response.statusText}`)
+        }
+
+        return await response.json();
+    }
+
     async getAllPosts() {
         return await this.getData('/api/posts');
     }
@@ -32,5 +45,9 @@ export default class Service {
 
     async createPost(body) {
         return await this.postData('/api/posts/add', body);
+    }
+
+    async editPost(id, body) {
+        return await this.editData(`/api/posts/${id}/edit`, body);
     }
 }

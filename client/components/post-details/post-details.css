@@ -2,9 +2,6 @@
     margin-top: 2rem;
 }
 
-.post-details-container h1 {
-    margin-bottom: 2rem;
-}
 
 .post-details-full-info {
     margin-top: 2rem;
@@ -59,4 +56,27 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
+}
+
+.post-page-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.btns-page {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.btns-page button {
+    margin-left: 10px;
+}
+
+.btns-page a {
+    color: white !important;
 }
