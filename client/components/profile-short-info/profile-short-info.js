@@ -14,7 +14,9 @@ export default class ShortInfo extends Component {
                 <span className = 'profile-page-about'>{about}</span>
                 <span className = 'profile-page-rating'>Рейтинг: {rating}</span>
                 <Button color = 'primary'>Додати до списку друзів</Button>
-                <Button className = 'mt-2' color = 'secondary'>Редагувати профіль</Button>
+                <a href = "/editProfile">
+                    <Button className = 'mt-2' color = 'secondary'>Редагувати профіль</Button>
+                </a>
             </div>
         );
     }

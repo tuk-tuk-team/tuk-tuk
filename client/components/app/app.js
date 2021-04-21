@@ -4,8 +4,7 @@ import { Container } from 'reactstrap';
 import './app.css';
 
 import Header from '../header';
-import { FeedPage, ProfilePage, PostPage, NewPostPage, Login } from '../pages';
-
+import { FeedPage, ProfilePage, PostPage, NewPostPage, Login, SignUpMenu, EditProfile } from '../pages';
 
 class App extends Component {
 	render() {
@@ -21,6 +20,8 @@ class App extends Component {
                             <Route exact path="/posts/add" component={NewPostPage} />
                             <Route exact path="/posts/:id" component={PostPage} />
                             <Route exact path="/profile" component={ProfilePage} />
+							<Route exact path="/signup" component={SignUpMenu} />
+							<Route exact path="/editProfile" component={EditProfile} />
                         </Switch>
 					</Container>
 				</Router>
