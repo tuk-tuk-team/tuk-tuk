@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Service from '../../services';
+import Spinner from '../spinner';
 import './post-edit-page.css';
 
 class EditPostForm extends Component {
     constructor(props) {
         super(props);
-        const {type, title, description, district, location, ownerPhone, price, originLink} = this.props;
         this.state = {
-            type: type,
-            title: title,
-            description: description,
-            district: district,
-            location: location,
-            ownerPhone: ownerPhone,
-            price: price,
-            originLink: originLink
+            loading: true,
+            error: false
         };
+
         this.service = new Service();
-        console.log(this.state);
 
         this.onTypeChange = this.onTypeChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+    }
+
+    componentDidMount() {
+        this.service.getPostById(this.props.match.params.id)
+            .then(data => {
+                if (!data.error) {
+                    this.setState({
+                        ...data,
+                        loading: false
+                    });
+                } else {
+                    this.setState({
+                        error: true,
+                        loading: false,
+                        errorMessage: 'Оголошення не знайдено'
+                    })
+                }
+            });
     }
 
     onTypeChange(e) {
@@ -50,8 +62,8 @@ class EditPostForm extends Component {
             case 'district':
                 this.setState({ district: target.value });
                 break;
-            case 'location':
-                this.setState({ location: target.value });
+            case 'address':
+                this.setState({ address: target.value });
                 break;
             case 'ownerPhone':
                 this.setState({ ownerPhone: target.value });
@@ -69,25 +81,33 @@ class EditPostForm extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const body = this.state.type === 1 ?{
+        const body = this.state.type === 1 ? {
             ...this.state,
             originLink: this.state.originLink ? this.state.originLink : null
         } : {
             ...this.state,
             district: null,
-            location: null,
+            address: null,
             ownerPhone: null,
             price: null,
             originLink: null
         };
 
-        this.service.editPost(body)
+        this.service.editPost(this.state.postId, body)
             .then(data => {
                 this.props.history.replace(`/posts/${data.postId}`);
             });
     }
 
     render() {
+        if (this.state.loading) {
+            return (
+                <div className="mt-5">
+                    <Spinner />
+                </div>
+            )
+        }
+
         const view = this.state.type === 1 ? this.flatView() : this.groupView();
 
         return (
@@ -121,7 +141,7 @@ class EditPostForm extends Component {
                     className="button action"
                     type="submit"
                     onClick={this.onSubmit}
-                >Створити</button>
+                >Зберегти</button>
             </form>
         )
     }
@@ -174,9 +194,9 @@ class EditPostForm extends Component {
                 <div className="post-input-block">
                     <h4>Адреса</h4>
                     <input
-                        value={this.state.location}
+                        value={this.state.address}
                         type="text"
-                        name="location"
+                        name="address"
                         placeholder="Адреса..."
                         maxLength="255"
                         onChange={this.onInputChange}
