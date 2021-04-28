@@ -17,7 +17,6 @@ class EditPostForm extends Component {
         this.onTypeChange = this.onTypeChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
-        this.onDelete = this.onDelete.bind(this);
     }
 
     componentDidMount() {
@@ -79,6 +78,7 @@ class EditPostForm extends Component {
                 break;
         }
     }
+
 
     onSubmit(e) {
         e.preventDefault();
@@ -185,7 +185,6 @@ class EditPostForm extends Component {
                 <div className="post-input-block">
                     <h4>Район</h4>
                     <select
-                        value={this.state.district}
                         name="district"
                         onChange={this.onInputChange}
                         required
@@ -205,7 +204,7 @@ class EditPostForm extends Component {
                 <div className="post-input-block">
                     <h4>Адреса</h4>
                     <input
-                        value={this.state.address}
+                        value={this.state.address === null ? '' : this.state.address}
                         type="text"
                         name="address"
                         placeholder="Адреса..."
@@ -217,7 +216,7 @@ class EditPostForm extends Component {
                 <div className="post-input-block">
                     <h4>Номер телефону власника квартири</h4>
                     <input
-                        value={this.state.ownerPhone}
+                        value={this.state.ownerPhone === null ? '' : this.state.ownerPhone}
                         type="tel"
                         name="ownerPhone"
                         placeholder="+380952225566"
@@ -228,7 +227,7 @@ class EditPostForm extends Component {
                 <div className="post-input-block">
                     <h4>Ціна</h4>
                     <input
-                        value={this.state.price}
+                        value={this.state.price  === null ? '' : this.state.price}
                         type="number"
                         name="price"
                         placeholder="Ціна..."
@@ -240,7 +239,7 @@ class EditPostForm extends Component {
                 <div className="post-input-block">
                     <h4>Оригінальне оголошення</h4>
                     <input
-                        value={this.state.originLink}
+                        value={this.state.originLink === null ? '' : this.state.originLink}
                         type="text"
                         name="originLink"
                         placeholder="Посилання на оголошення..."
