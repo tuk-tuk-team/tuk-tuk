@@ -1,6 +1,9 @@
 const formatDate = (timestamp) => {
-    const arr = timestamp.split('T')[0].split('-');
-    let month;
+    const date = new Date(timestamp);
+    
+    //const arr = timestamp.split('T')[0].split('-');
+
+    /*let month;
     switch (arr[1]) {
         case '01':
             month = 'січня';
@@ -41,7 +44,14 @@ const formatDate = (timestamp) => {
         default:
             break;
     }
-    return `${arr[2]} ${month} ${arr[0]} г.`;
+    return `${arr[2]} ${month} ${arr[0]} г.`;*/
+
+    const options = {
+        year: 'numeric', month: 'numeric', day: 'numeric',
+        hour: 'numeric', minute: 'numeric', second: 'numeric',
+        hour12: false
+      };
+    return new Intl.DateTimeFormat('en-GB', options).format(date);
 };
 
 export {
