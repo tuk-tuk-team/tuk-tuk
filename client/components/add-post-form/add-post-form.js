@@ -11,7 +11,7 @@ class AddPostForm extends Component {
             title: '',
             description: '',
             district: 'Голосіївський',
-            location: '',
+            address: '',
             ownerPhone: '',
             price: null,
             originLink: ''
@@ -48,8 +48,8 @@ class AddPostForm extends Component {
             case 'district':
                 this.setState({ district: target.value });
                 break;
-            case 'location':
-                this.setState({ location: target.value });
+            case 'address':
+                this.setState({ address: target.value });
                 break;
             case 'ownerPhone':
                 this.setState({ ownerPhone: target.value });
@@ -73,7 +73,7 @@ class AddPostForm extends Component {
         } : {
             ...this.state,
             district: null,
-            location: null,
+            address: null,
             ownerPhone: null,
             price: null,
             originLink: null
@@ -170,7 +170,7 @@ class AddPostForm extends Component {
                     <h4>Адреса</h4>
                     <input
                         type="text"
-                        name="location"
+                        name="address"
                         placeholder="Адреса..."
                         maxLength="255"
                         onChange={this.onInputChange}

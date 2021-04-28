@@ -48,7 +48,7 @@ export default class PostPage extends Component {
             title,
             description,
             district,
-            location,
+            address,
             ownerPhone,
             price,
             originLink,
@@ -61,7 +61,7 @@ export default class PostPage extends Component {
             title={title}
             description={description}
             district={district}
-            location={location}
+            address={address}
             ownerPhone={ownerPhone}
             price={price}
             originLink={originLink}

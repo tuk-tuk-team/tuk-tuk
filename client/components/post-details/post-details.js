@@ -13,7 +13,7 @@ const flatView = (props) => {
         title,
         description,
         district,
-        location,
+        address,
         ownerPhone,
         price,
         originLink,
@@ -52,9 +52,9 @@ const flatView = (props) => {
                         <h4>Район</h4>
                         <span>{district}</span>
                     </div>
-                    <div className = "location">
+                    <div className = "address">
                         <h4>Адреса</h4>
-                        <span>{location}</span>
+                        <span>{address}</span>
                     </div>
                     <div className = "phone-number">
                         <h4>Номер телефону власника квартири</h4>

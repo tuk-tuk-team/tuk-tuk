@@ -64,7 +64,7 @@ export default class SearchForm extends Component {
 								<h4>Адреса</h4>
 								<input
                                     type="text"
-                                    name="location"
+                                    name="address"
                                     placeholder="Вулиця..." />
 							</div>
 						</Col>

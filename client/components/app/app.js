@@ -4,7 +4,7 @@ import { Container } from 'reactstrap';
 import './app.css';
 
 import Header from '../header';
-import { FeedPage, ProfilePage, PostPage, NewPostPage, Login, SignUpMenu, EditProfile,  EditPost} from '../pages';
+import { FeedPage, ProfilePage, PostPage, NewPostPage, Login, SignUpMenu, EditProfile, EditPost} from '../pages';
 
 class App extends Component {
 	render() {

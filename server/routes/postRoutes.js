@@ -38,17 +38,17 @@ async function routes(fastify, options) {
                 title,
                 description,
                 district,
-                location,
+                address,
                 ownerPhone,
                 price,
                 originLink
             } = JSON.parse(request.body);
 
             const res = await fastify.db.query(`
-                INSERT INTO posts ("postId", "type", "title", "description", "originLink", "district", "location", "ownerPhone", "price")
+                INSERT INTO posts ("postId", "type", "title", "description", "originLink", "district", "address", "ownerPhone", "price")
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
                 RETURNING *
-            `, [postId, type, title, description, originLink, district, location, ownerPhone, price]);
+            `, [postId, type, title, description, originLink, district, address, ownerPhone, price]);
 
             reply.send(res.rows[0]);
         } catch (e) {
@@ -56,7 +56,7 @@ async function routes(fastify, options) {
         }
     });
 
-    fastify.put('/edit', async (request, reply) => {
+    fastify.put('/:id/edit', async (request, reply) => {
         try {
             const {
                 postId,
@@ -64,7 +64,7 @@ async function routes(fastify, options) {
                 title,
                 description,
                 district,
-                location,
+                address,
                 ownerPhone,
                 price,
                 originLink
@@ -76,13 +76,13 @@ async function routes(fastify, options) {
                 "title" = $2,
                 "description" = $3,
                 "district" = $4,
-                "location" = $5,
+                "address" = $5,
                 "ownerPhone" = $6,
                 "price" = $7,
                 "originLink" = $8
                 WHERE "postId" = $9
                 RETURNING *
-            `, [type, title, description, district, location, ownerPhone, price, originLink, postId]);
+            `, [type, title, description, district, address, ownerPhone, price, originLink, postId]);
 
             reply.send(res.rows[0]);
         } catch (e) {
