@@ -17,6 +17,7 @@ class EditPostForm extends Component {
         this.onTypeChange = this.onTypeChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     componentDidMount() {
@@ -99,6 +100,12 @@ class EditPostForm extends Component {
             });
     }
 
+    onDelete(e) {
+        e.preventDefault();
+        this.service.deletePost(this.state.postId)
+            .then(() => this.props.history.replace('/posts'));
+    }
+
     render() {
         if (this.state.loading) {
             return (
@@ -142,6 +149,10 @@ class EditPostForm extends Component {
                     type="submit"
                     onClick={this.onSubmit}
                 >Зберегти</button>
+                <button
+                    className="btn btn-outline-danger ml-2"
+                    onClick={this.onDelete}
+                >Видалити</button>
             </form>
         )
     }

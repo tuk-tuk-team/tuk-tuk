@@ -62,4 +62,8 @@ export default class Service {
     async editPost(id, body) {
         return await editData(`/api/posts/${id}/edit`, body);
     }
+
+    async deletePost(id) {
+        return await deleteData(`/api/posts/${id}/delete`);
+    }
 }

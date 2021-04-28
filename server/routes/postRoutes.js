@@ -90,9 +90,9 @@ async function routes(fastify, options) {
         }
     });
 
-    fastify.delete('/delete', async (request, reply) => {
+    fastify.delete('/:id/delete', async (request, reply) => {
         try {
-            const { postId } = JSON.parse(request.body);
+            const postId = request.params.id;
             const res = await fastify.db.query(`
                 DELETE FROM posts
                 WHERE "postId" = $1
