@@ -2,7 +2,7 @@ const getData = async (url) => {
     const response = await fetch(url);
 
     if (!response.ok) {
-        throw new Error(`Couldn't fetch ${url}. Status: ${response.status} - ${response.statusText}`);
+        console.error(`Couldn't fetch ${url}. Status: ${response.status} - ${response.statusText}`);
     }
 
     return await response.json();
@@ -15,7 +15,7 @@ const postData = async (url, body) => {
     });
 
     if (!response.ok) {
-        throw new Error(`Couldn't post ${url}. Status: ${response.status} - ${response.statusText}`);
+        console.error(`Couldn't post ${url}. Status: ${response.status} - ${response.statusText}`);
     }
 
     return await response.json();
@@ -28,7 +28,7 @@ const editData = async (url, body) => {
     });
 
     if (!response.ok) {
-        throw new Error(`Couldn't edit ${url}. Status: ${response.status} - ${response.statusText}`);
+        console.error(`Couldn't edit ${url}. Status: ${response.status} - ${response.statusText}`);
     }
 
     return await response.json();
@@ -40,7 +40,7 @@ const deleteData = async (url) => {
     });
 
     if (!response.ok) {
-        throw new Error(`Couldn't delete ${url}. Status: ${response.status} - ${response.statusText}`);
+        console.error(`Couldn't delete ${url}. Status: ${response.status} - ${response.statusText}`);
     }
 
     return await response.json();
