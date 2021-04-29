@@ -116,7 +116,8 @@ class EditPostForm extends Component {
             )
         }
 
-        const view = this.state.type === 1 ? this.flatView() : this.groupView();
+        const { type } = this.state;
+        const view = type === 1 ? this.flatView() : this.groupView();
 
         return (
             <form id="add-post" method="PUT">
@@ -128,7 +129,7 @@ class EditPostForm extends Component {
                             id="type-1"
                             name="postType"
                             value="flat"
-                            defaultChecked
+                            checked={type === 1 ? true : false}
                             onChange={this.onTypeChange}
                         />
                         <label htmlFor="type-1">Пошук співмешканця</label>
@@ -139,6 +140,7 @@ class EditPostForm extends Component {
                             id="type-2"
                             name="postType"
                             value="group"
+                            checked={type === 2 ? true : false}
                             onChange={this.onTypeChange}
                         />
                         <label htmlFor="type-2">Пошук групи</label>
