@@ -4,11 +4,7 @@ async function routes(fastify, options) {
     fastify.get('/', async (request, reply) => {
         try {
             const res = await fastify.db.query(`SELECT * FROM posts ORDER BY "date" DESC`);
-            if (res.rows.length) {
-                reply.send(res.rows);
-            } else {
-                reply.send({ error: 'Posts are missing' });
-            }
+            reply.send(res.rows);
         } catch (e) {
             console.log(e);
         }
@@ -20,11 +16,7 @@ async function routes(fastify, options) {
                 `SELECT * FROM posts WHERE "postId" = $1`,
                 [request.params.id]
             );
-            if (res.rows.length) {
-                reply.send(res.rows[0]);
-            } else {
-                reply.send({ error: 'Post not found' });
-            }
+            reply.send(res.rows[0]);
         } catch (e) {
             console.log(e);
         }
