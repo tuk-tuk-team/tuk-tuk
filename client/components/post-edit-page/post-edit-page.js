@@ -17,6 +17,7 @@ class EditPostForm extends Component {
         this.onTypeChange = this.onTypeChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     componentDidMount() {
