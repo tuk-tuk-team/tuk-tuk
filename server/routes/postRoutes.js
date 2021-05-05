@@ -1,10 +1,16 @@
 const { v4: uuidv4 } = require('uuid');
+const queries = require('../dataAccess/index.js');
 
 async function routes(fastify, options) {
+
+    const queriesData = queries(fastify.db)
+
     fastify.get('/', async (request, reply) => {
         try {
-            const res = await fastify.db.query(`SELECT * FROM posts ORDER BY "date" DESC`);
-            reply.send(res.rows);
+
+            const result = await queriesData.getAllPostsData();
+            reply.send(result.rows)
+
         } catch (e) {
             console.log(e);
         }
@@ -12,11 +18,10 @@ async function routes(fastify, options) {
 
     fastify.get('/:id', async (request, reply) => {
         try {
-            const res = await fastify.db.query(
-                `SELECT * FROM posts WHERE "postId" = $1`,
-                [request.params.id]
-            );
-            reply.send(res.rows[0]);
+
+            const result = await queriesData.getPostByIdData(request.params.id);
+            reply.send(result.rows[0]);
+
         } catch (e) {
             console.log(e);
         }
@@ -24,25 +29,11 @@ async function routes(fastify, options) {
 
     fastify.post('/add', async (request, reply) => {
         try {
+
             const postId = uuidv4();
-            const {
-                type,
-                title,
-                description,
-                district,
-                address,
-                ownerPhone,
-                price,
-                originLink
-            } = request.body;
+            const result = await queriesData.addPostData(postId, request.body);
+            reply.send(result.rows[0]);
 
-            const res = await fastify.db.query(`
-                INSERT INTO posts ("postId", "type", "title", "description", "originLink", "district", "address", "ownerPhone", "price")
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-                RETURNING *
-            `, [postId, type, title, description, originLink, district, address, ownerPhone, price]);
-
-            reply.send(res.rows[0]);
         } catch (e) {
             console.log(e);
         }
@@ -50,33 +41,10 @@ async function routes(fastify, options) {
 
     fastify.put('/:id/edit', async (request, reply) => {
         try {
-            const {
-                postId,
-                type,
-                title,
-                description,
-                district,
-                address,
-                ownerPhone,
-                price,
-                originLink
-            } = request.body;
-            
-            const res = await fastify.db.query(`
-                UPDATE posts SET
-                "type" = $1,
-                "title" = $2,
-                "description" = $3,
-                "district" = $4,
-                "address" = $5,
-                "ownerPhone" = $6,
-                "price" = $7,
-                "originLink" = $8
-                WHERE "postId" = $9
-                RETURNING *
-            `, [type, title, description, district, address, ownerPhone, price, originLink, postId]);
 
-            reply.send(res.rows[0]);
+            const result = await queriesData.editPostData(request.body);
+            reply.send(result.rows[0]);
+
         } catch (e) {
             console.log(e);
         }
@@ -84,14 +52,11 @@ async function routes(fastify, options) {
 
     fastify.delete('/:id/delete', async (request, reply) => {
         try {
-            const postId = request.params.id;
-            const res = await fastify.db.query(`
-                DELETE FROM posts
-                WHERE "postId" = $1
-                RETURNING *
-            `, [postId]);
 
-            reply.send(res.rows[0]);
+            const postId = request.params.id;
+            const result = await queriesData.deletePostData(postId);
+            reply.send(result.rows[0]);
+            
         } catch (e) {
             console.log(e);
         }
