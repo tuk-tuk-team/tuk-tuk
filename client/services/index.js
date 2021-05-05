@@ -10,6 +10,9 @@ const getData = async (url) => {
 
 const postData = async (url, body) => {
     const response = await fetch(url, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
         method: 'POST',
         body: JSON.stringify(body)
     });
@@ -23,8 +26,11 @@ const postData = async (url, body) => {
 
 const editData = async (url, body) => {
     const response = await fetch(url, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
         method: 'PUT',
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
     });
 
     if (!response.ok) {

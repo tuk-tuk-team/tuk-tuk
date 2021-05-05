@@ -34,7 +34,7 @@ async function routes(fastify, options) {
                 ownerPhone,
                 price,
                 originLink
-            } = JSON.parse(request.body);
+            } = request.body;
 
             const res = await fastify.db.query(`
                 INSERT INTO posts ("postId", "type", "title", "description", "originLink", "district", "address", "ownerPhone", "price")
@@ -60,8 +60,8 @@ async function routes(fastify, options) {
                 ownerPhone,
                 price,
                 originLink
-            } = JSON.parse(request.body);
-
+            } = request.body;
+            
             const res = await fastify.db.query(`
                 UPDATE posts SET
                 "type" = $1,
