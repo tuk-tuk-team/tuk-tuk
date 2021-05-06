@@ -4,13 +4,11 @@
   "description": "\"Тук-тук\" is a service where people already renting an apartment can find a roommates who share common interests to share rent, or find a group of people to search for a desired apartment together.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
     "test": "jest --coverage",
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
+    "lint": "eslint client/",
+    "lint:fix": "eslint client/ --fix",
     "check-format": "prettier ./ --check",
-    "format": "prettier ./ --write",
-    "build": "webpack --config webpack.config.js --mode production"
+    "format": "prettier ./ --write"
   },
   "repository": {
     "type": "git",
@@ -23,27 +21,13 @@
   },
   "homepage": "https://github.com/danil0110/tuk-tuk#readme",
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
-    "@babel/preset-react": "^7.12.13",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^5.1.1",
-    "eslint": "^7.22.0",
+    "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "html-webpack-plugin": "^5.2.0",
+    "eslint-plugin-react": "^7.23.1",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "react-dom": "^17.0.1",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.24.3",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
-    "react": "^17.0.1"
+    "prettier": "^2.2.1"
   }
 }

@@ -1,19 +1,25 @@
 'use strict';
 
-let path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
-	entry: './src/index.js',
+	entry: './index.js',
 	output: {
 		filename: 'bundle.js',
-		path: __dirname + '/dist'
+		path: __dirname + '/dist',
+		publicPath: '/'
 	},
 	// watch: true,
 
 	devtool: 'source-map',
 
+	devServer: {
+        proxy: {
+            '/api': 'http://localhost:4000',
+        },
+		historyApiFallback: true
+	},
 	module: {
 		rules: [
 			{
@@ -24,6 +30,14 @@ module.exports = {
 				}
 			},
 			{
+				test: /\.(png|jpe?g|gif)$/i,
+				use: [
+					{
+						loader: 'file-loader'
+					}
+				]
+			},
+			{
 				test: /\.css$/,
 				use: ['style-loader', 'css-loader']
 			}
@@ -31,7 +45,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './src/index.html'
+			template: './index.html'
 		})
 	]
 };
