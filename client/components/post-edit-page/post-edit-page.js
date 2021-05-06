@@ -14,7 +14,6 @@ class EditPostForm extends Component {
 
         this.service = new Service();
 
-        this.onTypeChange = this.onTypeChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
         this.onDelete = this.onDelete.bind(this);
@@ -38,46 +37,14 @@ class EditPostForm extends Component {
             });
     }
 
-    onTypeChange(e) {
-        switch(e.target.id) {
-            case 'type-1':
-                this.setState({ type: 1 });
-                break;
-            case 'type-2':
-                this.setState({ type: 2 });
-                break;
-            default:
-                break;
-        }
-    }
-
     onInputChange(e) {
         const target = e.target;
-        switch (target.name) {
-            case 'title':
-                this.setState({ title: target.value });
-                break;
-            case 'description':
-                this.setState({ description: target.value });
-                break;
-            case 'district':
-                this.setState({ district: target.value });
-                break;
-            case 'address':
-                this.setState({ address: target.value });
-                break;
-            case 'ownerPhone':
-                this.setState({ ownerPhone: target.value });
-                break;
-            case 'price':
-                this.setState({ price: target.value });
-                break;
-            case 'originLink':
-                this.setState({ originLink: target.value });
-                break;
-            default:
-                break;
-        }
+
+        this.setState(state => {
+            const newState = state;
+            newState[target.name] = target.name === 'type' ? +target.value : target.value;
+            return newState;
+        });
     }
 
 
@@ -127,10 +94,10 @@ class EditPostForm extends Component {
                         <input
                             type="radio"
                             id="type-1"
-                            name="postType"
-                            value="flat"
+                            name="type"
+                            value="1"
                             checked={type === 1 ? true : false}
-                            onChange={this.onTypeChange}
+                            onChange={this.onInputChange}
                         />
                         <label htmlFor="type-1">Пошук співмешканця</label>
                     </div>
@@ -138,10 +105,10 @@ class EditPostForm extends Component {
                         <input
                             type="radio"
                             id="type-2"
-                            name="postType"
-                            value="group"
+                            name="type"
+                            value="2"
                             checked={type === 2 ? true : false}
-                            onChange={this.onTypeChange}
+                            onChange={this.onInputChange}
                         />
                         <label htmlFor="type-2">Пошук групи</label>
                     </div>
