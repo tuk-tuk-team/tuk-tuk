@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
-const queries = require('../dataAccess/index.js');
+const queries = require('../data-access/index.js');
 
 async function routes(fastify, options) {
 
