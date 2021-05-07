@@ -111,8 +111,7 @@ const authService = (db) => {
 		register,
 		login,
 		logout,
-		authHook,
-		getUserInfo
+		authHook
 	};
 };
 
