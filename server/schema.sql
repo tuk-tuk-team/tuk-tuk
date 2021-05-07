@@ -14,6 +14,7 @@ CREATE TABLE posts (
 
 CREATE TABLE users (
     "userId" varchar UNIQUE NOT NULL,
+    "username" varchar UNIQUE NOT NULL,
     "email" varchar(100) UNIQUE NOT NULL,
     "password" varchar(255) NOT NULL
 );
