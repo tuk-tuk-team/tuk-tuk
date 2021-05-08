@@ -14,7 +14,7 @@ fastify.register(require('fastify-cors'), {
 });
 
 fastify.register(postRoutes, { prefix: '/api/posts' });
-fastify.register(authRoutes, { prefix: '/auth' });
+fastify.register(authRoutes, { prefix: '/api/auth' });
 fastify.register(userRoutes, { prefix: '/users' });
 
 const PORT = process.env.PORT || 4000;

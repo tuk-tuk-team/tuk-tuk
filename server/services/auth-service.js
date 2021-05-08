@@ -23,16 +23,41 @@ const authService = (db) => {
 			userId: uuidv4(),
 			username: body.username,
 			email: body.email,
-			password: await bcrypt.hash(body.password, 10)
+			password: await bcrypt.hash(body.password, 10),
+			firstName: body.firstName,
+			lastName: body.lastName,
+			gender: body.gender,
+			phone: body.phone,
+			dateOfBirth: body.dateOfBirth
 		};
 
 		const result = await db.query(
 			`
-                INSERT INTO users ("userId", "username", "email", "password")
-                VALUES ($1, $2, $3, $4)
+                INSERT INTO users (
+                    "userId",
+                    "username",
+                    "email",
+                    "password",
+                    "firstName",
+                    "lastName",
+                    "gender",
+                    "phone",
+                    "dateOfBirth"
+                )
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
                 RETURNING *
             `,
-			[newUser.userId, newUser.username, newUser.email, newUser.password]
+			[
+				newUser.userId,
+				newUser.username,
+				newUser.email,
+				newUser.password,
+				newUser.firstName,
+				newUser.lastName,
+				newUser.gender,
+				newUser.phone,
+				newUser.dateOfBirth
+			]
 		);
 
 		return result.rows[0];
@@ -89,6 +114,7 @@ const authService = (db) => {
 		const token = request.cookies.jwt;
 
 		if (!token) {
+			request.userId = null;
 			reply.send({
 				error: true,
 				message: 'Not authorized'
@@ -97,6 +123,7 @@ const authService = (db) => {
 
 		const claims = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
 		if (!claims) {
+			request.userId = null;
 			reply.send({
 				error: true,
 				message: 'Not authorized'

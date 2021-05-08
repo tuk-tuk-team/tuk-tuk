@@ -20,7 +20,7 @@ class App extends Component {
                             <Route exact path="/posts/add" component={NewPostPage} />
                             <Route exact path="/posts/:id" component={PostPage} />
                             <Route exact path="/profile" component={ProfilePage} />
-							<Route exact path="/signup" component={SignUpMenu} />
+							<Route exact path="/register" component={SignUpMenu} />
 							<Route exact path="/editProfile" component={EditProfile} />
 							<Route exact path="/posts/:id/edit" component={EditPost} />
                         </Switch>

@@ -22,6 +22,9 @@ export default function Header() {
 							<li className="nav-item">
 								<Link to="/profile">Профіль</Link>
 							</li>
+							<li className="nav-item">
+								<Link to="/login">Увійти</Link>
+							</li>
 						</ul>
 					</nav>
 				</div>

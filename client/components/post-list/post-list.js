@@ -3,7 +3,7 @@ import { Row } from 'reactstrap';
 import PostCard from '../post-card';
 import Spinner from '../spinner';
 
-import Service from '../../services';
+import Service from '../../services/post-service';
 
 export default class PostList extends Component {
     constructor(props) {

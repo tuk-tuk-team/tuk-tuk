@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Service from '../../services';
+import PostService from '../../services/post-service';
 import Spinner from '../spinner';
 import './post-edit-page.css';
 
@@ -12,7 +12,7 @@ class EditPostForm extends Component {
             error: false
         };
 
-        this.service = new Service();
+        this.postService = new PostService();
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
@@ -20,7 +20,7 @@ class EditPostForm extends Component {
     }
 
     componentDidMount() {
-        this.service.getPostById(this.props.match.params.id)
+        this.postService.getPostById(this.props.match.params.id)
             .then(data => {
                 if (!data.error) {
                     this.setState({
@@ -62,7 +62,7 @@ class EditPostForm extends Component {
             originLink: null
         };
 
-        this.service.editPost(this.state.postId, body)
+        this.postService.editPost(this.state.postId, body)
             .then(data => {
                 this.props.history.replace(`/posts/${data.postId}`);
             });
@@ -70,7 +70,7 @@ class EditPostForm extends Component {
 
     onDelete(e) {
         e.preventDefault();
-        this.service.deletePost(this.state.postId)
+        this.postService.deletePost(this.state.postId)
             .then(() => this.props.history.replace('/posts'));
     }
 

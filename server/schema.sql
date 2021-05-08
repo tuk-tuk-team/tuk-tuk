@@ -16,7 +16,12 @@ CREATE TABLE users (
     "userId" varchar UNIQUE NOT NULL,
     "username" varchar UNIQUE NOT NULL,
     "email" varchar(100) UNIQUE NOT NULL,
-    "password" varchar(255) NOT NULL
+    "password" varchar(255) NOT NULL,
+    "firstName" varchar(255) NOT NULL,
+    "lastName" varchar(255) NOT NULL,
+    "gender" char NOT NULL,
+    "phone" varchar(13) NOT NULL,
+    "dateOfBirth" date NOT NULL
 );
 
 -- Update date trigger
