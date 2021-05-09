@@ -31,7 +31,7 @@ export default class SignUpMenu extends Component {
 	}
 
 	onRegister(e) {
-        e.preventDefault();
+		e.preventDefault();
 		this.authService.register(this.state.data).then((data) => {
 			if (!data.error) {
 				return this.props.history.push('/login');
@@ -133,7 +133,7 @@ export default class SignUpMenu extends Component {
 								type="text"
 								value={this.state.phone}
 								onChange={this.handlerInput}
-                                maxLength="13"
+								maxLength="13"
 								required
 							></input>
 						</div>
