@@ -4,7 +4,7 @@
   "description": "\"Тук-тук\" is a service where people already renting an apartment can find a roommates who share common interests to share rent, or find a group of people to search for a desired apartment together.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "lint": "eslint client/",
     "lint:fix": "eslint client/ --fix",
     "check-format": "prettier ./ --check",
