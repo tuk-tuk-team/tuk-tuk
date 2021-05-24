@@ -5,7 +5,7 @@ import NewPostPage from "../components/pages/new-post-page";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('AddPostFormTest', ()=>{
+describe('NewPostPage render', ()=>{
     it('renders correctly', () => {
         shallow(<NewPostPage/>)
     });

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import PostService from '../../services/post-service';
 import './add-post-form.css';
 
