@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostService from '../../services/post-service';
+import { withRouter } from 'react-router-dom'
 import './add-post-form.css';
 
 class AddPostForm extends Component {
@@ -203,4 +204,4 @@ class AddPostForm extends Component {
 }
 
 //removed export with router as React v. > 5
-export default AddPostForm;
+export default withRouter(AddPostForm)
