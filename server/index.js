@@ -1,6 +1,7 @@
 require('dotenv').config();
 const fastify = require('fastify')({ logger: true });
 
+
 const dbConn = require('./plugins/db');
 const authRoutes = require('./routes/auth-routes');
 const postRoutes = require('./routes/post-routes');
@@ -22,3 +23,6 @@ const PORT = process.env.PORT || 4000;
 fastify.listen(PORT, (err, address) => {
 	console.log(`Server is running on ${address}`);
 });
+
+
+module.exports = fastify
