@@ -1,8 +1,26 @@
-const queries = (db) => {
-	const getUserById = async (id) => {
-		const result = await db.query(`SELECT * FROM users WHERE "userId" = $1`, [
-			id
-		]);
+class UserAccess {
+	constructor(db) {
+		this.db = db;
+	}
+
+	async getUsers() {
+		const result = await this.db.query(`SELECT * FROM users`);
+
+		if (!result.rows.length) {
+			return {
+				error: true,
+				message: 'Users are missing'
+			};
+		}
+
+		return result.rows;
+	}
+
+	async getUserById(id) {
+		const result = await this.db.query(
+			`SELECT * FROM users WHERE "userId" = $1`,
+			[id]
+		);
 
 		if (!result.rows[0]) {
 			return {
@@ -13,12 +31,13 @@ const queries = (db) => {
 
 		const { password, ...data } = result.rows[0];
 		return data;
-	};
+	}
 
-	const getUserByUsername = async (username) => {
-		const result = await db.query(`SELECT * FROM users WHERE "username" = $1`, [
-			username
-		]);
+	async getUserByUsername(username) {
+		const result = await this.db.query(
+			`SELECT * FROM users WHERE "username" = $1`,
+			[username]
+		);
 
 		if (!result.rows[0]) {
 			return {
@@ -29,12 +48,7 @@ const queries = (db) => {
 
 		const { password, ...data } = result.rows[0];
 		return data;
-	};
+	}
+}
 
-	return {
-		getUserById,
-		getUserByUsername
-	};
-};
-
-module.exports = queries;
+module.exports = UserAccess;

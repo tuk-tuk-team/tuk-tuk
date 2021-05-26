@@ -1,17 +1,24 @@
-const queries = (db) => {
-	const getAllPosts = async () => {
-		const result = await db.query(`SELECT * FROM posts ORDER BY "date" DESC`);
-		return result;
-	};
+class PostAccess {
+	constructor(db) {
+		this.db = db;
+	}
 
-	const getPostById = async (id) => {
-		const result = await db.query(`SELECT * FROM posts WHERE "postId" = $1`, [
-			id
-		]);
+	async getAllPosts() {
+		const result = await this.db.query(
+			`SELECT * FROM posts ORDER BY "date" DESC`
+		);
 		return result;
-	};
+	}
 
-	const addPost = async (postId, body) => {
+	async getPostById(id) {
+		const result = await this.db.query(
+			`SELECT * FROM posts WHERE "postId" = $1`,
+			[id]
+		);
+		return result;
+	}
+
+	async addPost(postId, body) {
 		const {
 			type,
 			title,
@@ -23,7 +30,7 @@ const queries = (db) => {
 			originLink
 		} = body;
 
-		const result = await db.query(
+		const result = await this.db.query(
 			`
                 INSERT INTO posts ("postId", "type", "title", "description", "originLink", "district", "address", "ownerPhone", "price")
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
@@ -43,9 +50,9 @@ const queries = (db) => {
 		);
 
 		return result;
-	};
+	}
 
-	const editPost = async (body) => {
+	async editPost(body) {
 		const {
 			postId,
 			type,
@@ -58,7 +65,7 @@ const queries = (db) => {
 			originLink
 		} = body;
 
-		const result = await db.query(
+		const result = await this.db.query(
 			`
                 UPDATE posts SET
                 "type" = $1,
@@ -86,10 +93,10 @@ const queries = (db) => {
 		);
 
 		return result;
-	};
+	}
 
-	const deletePost = async (id) => {
-		const result = await db.query(
+	async deletePost(id) {
+		const result = await this.db.query(
 			`
                 DELETE FROM posts
                 WHERE "postId" = $1
@@ -99,15 +106,7 @@ const queries = (db) => {
 		);
 
 		return result;
-	};
+	}
+}
 
-	return {
-		getAllPosts,
-		getPostById,
-		addPost,
-		editPost,
-		deletePost
-	};
-};
-
-module.exports = queries;
+module.exports = PostAccess;
