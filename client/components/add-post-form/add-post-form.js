@@ -204,4 +204,5 @@ class AddPostForm extends Component {
 }
 
 //removed export with router as React v. > 5
-export default withRouter(AddPostForm)
+export  {AddPostForm}
+export  default withRouter(AddPostForm)

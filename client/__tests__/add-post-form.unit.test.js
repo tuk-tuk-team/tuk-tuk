@@ -3,7 +3,7 @@ import Enzyme, {shallow, mount} from 'enzyme';
 import {waitFor} from '@testing-library/react';
 import PostService from '../services/post-service'
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import AddPostForm from '../components/add-post-form/add-post-form';
+import {AddPostForm} from '../components/add-post-form/add-post-form.js';
 
 
 Enzyme.configure({ adapter: new Adapter() });

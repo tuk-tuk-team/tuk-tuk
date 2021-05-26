@@ -65,9 +65,12 @@ describe('Requests are working', ()=>{
 });
 
 describe('Requests are handling errors', ()=>{
-    
+
+    //hides errors when handling !ok responses
+    console.error = jest.fn();
+
     beforeEach(() => {
-        fetch.resetMocks();
+        fetch.resetMocks();       
     });
 
     it('getData with error', async () => {
