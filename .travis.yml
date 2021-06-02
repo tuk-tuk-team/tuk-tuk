@@ -13,5 +13,4 @@ deploy:
   app:
     master: tuk-tuk-tuk
     dtest: tuk-tuk-dtest
-  api_key:
-    secure: b11112a1-4629-4dcd-9a4e-3671abb169b4
+  api_key: $HEROKU_SECRET_KEY
