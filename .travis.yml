@@ -15,5 +15,3 @@ deploy:
     master: tuk-tuk-tuk
     dtest: tuk-tuk-dtest
   api_key: $HEROKU_SECRET_KEY
-  on:
-    repo: tuk-tuk-team/tuk-tuk 
