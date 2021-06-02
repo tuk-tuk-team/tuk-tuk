@@ -9,7 +9,7 @@ script:
   - npm test
     
 deploy:
-  skip_cleanup: true,
+  edge: true,
   provider: heroku
   app:
     master: tuk-tuk-tuk
