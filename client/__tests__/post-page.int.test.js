@@ -30,11 +30,11 @@ describe('PostPage tests', ()=>{
 
     it('component renders correctly', () => {
         shallow(<Spinner/>);
-    });
+    }); 
 
     it('formatDate works correctly', () => {       
         const time = new Date(Date.UTC(2021, 5, 25)).valueOf()
-        const expectedTime = '25 червня 2021 р., 03:00';
+        const expectedTime = '25 червня 2021 р., 00:00';
         const actualTime = formatDate(time);
 
         expect(actualTime).toBe(expectedTime);
