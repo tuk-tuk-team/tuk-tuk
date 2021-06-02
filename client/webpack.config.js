@@ -11,7 +11,8 @@ module.exports = {
 		publicPath: '/'
 	},
 	resolve: {
-		extensions: ['.js']
+		extensions: ['.js'],
+		modules: [__dirname + 'node_modules']
 	},
 
 	devtool: 'source-map',
