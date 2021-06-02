@@ -1,12 +1,12 @@
-sudo: false
 
 language: node_js
 node_js:
-  - 9
+  - "14.16.0"
 
-branches:
-  only:
-    - master
+install:
+  - npm install
+script:
+  - npm test
     
 deploy:
   provider: heroku
