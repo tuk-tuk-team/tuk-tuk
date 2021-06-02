@@ -10,7 +10,9 @@ module.exports = {
 		path: __dirname + '/dist',
 		publicPath: '/'
 	},
-	// watch: true,
+	resolve: {
+		extensions: ['.js']
+	},
 
 	devtool: 'source-map',
 
