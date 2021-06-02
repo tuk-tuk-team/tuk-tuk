@@ -1,15 +1,17 @@
-sudo: false
-
 language: node_js
 node_js:
-  - 9
+  - "stable"
 
-branches:
-  only:
-    - master
+before_script:
+  - cd client
+  - npm install
+script:
+  - npm test
     
 deploy:
   provider: heroku
-  app: tuk-tuk-tuk
+  app:
+    master: tuk-tuk-tuk
+    dtest: tuk-tuk-dtest
   api_key:
     secure: b11112a1-4629-4dcd-9a4e-3671abb169b4
