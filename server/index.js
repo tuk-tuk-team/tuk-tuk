@@ -11,7 +11,7 @@ fastify.register(dbConn);
 fastify.register(require('fastify-cookie'));
 fastify.register(require('fastify-cors'), {
 	credentials: true,
-	origin: ['http://localhost:3000/']
+	origin: ['0.0.0.0:3000/']
 });
 
 fastify.register(postRoutes, { prefix: '/api/posts' });
