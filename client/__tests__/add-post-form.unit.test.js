@@ -5,10 +5,10 @@ import PostService from '../services/post-service'
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {AddPostForm} from '../components/add-post-form/add-post-form.js';
 
-
+  
 Enzyme.configure({ adapter: new Adapter() });
 jest.mock('../services/post-service');
- 
+
 describe('AddPostForm tests', ()=>{
 
     it('component renders correctly', () => {
