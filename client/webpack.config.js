@@ -18,7 +18,7 @@ module.exports = {
 
 	devServer: {
         proxy: {
-            '/api': 'http://localhost:4000',
+            '/api': 'https://tuk-tuk-dtest-server.herokuapp.com',
         },
 		historyApiFallback: true
 	},
