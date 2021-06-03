@@ -11,8 +11,7 @@
     "start": "node index.js",
     "dev": "webpack serve",
     "build": "webpack --config webpack.config.js --mode production",
-    "test": "jest",
-    "postinstall": "webpack --config webpack.config.js --mode production"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
