@@ -8,7 +8,7 @@ import {AddPostForm} from '../components/add-post-form/add-post-form.js';
 
 Enzyme.configure({ adapter: new Adapter() });
 jest.mock('../services/post-service');
-
+ 
 describe('AddPostForm tests', ()=>{
 
     it('component renders correctly', () => {
