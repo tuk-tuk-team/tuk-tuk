@@ -13,7 +13,7 @@
     "dev": "webpack serve",
     "build": "webpack --config webpack.config.js --mode production",
     "test": "jest",
-    "postinstall": "webpack -p --config ./webpack.prod.config.js --progress"
+    "postinstall": "webpack --config webpack.config.js --mode production"
   },
   "keywords": [],
   "author": "",
