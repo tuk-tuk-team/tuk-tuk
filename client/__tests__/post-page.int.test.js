@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, {mount, shallow} from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import fetchMock from "jest-fetch-mock";
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -11,11 +11,10 @@ import BtnLike from '../components/btn-like/btn-like';
 import PostDetails from '../components/post-details/post-details';
 import { formatDate } from '../modules/index';
 
-
 fetchMock.enableMocks();
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('PostPage tests', ()=>{
+describe('PostPage tests', () => {
 
     beforeEach(() => {
         fetch.resetMocks();

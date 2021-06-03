@@ -8,7 +8,7 @@
     "npm": "6.x"
   },
   "scripts": {
-    "start": "webpack-cli serve --mode development",
+    "start": "node index.js",
     "build": "webpack --config webpack.config.js --mode production",
     "test": "jest"
   },
