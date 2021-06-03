@@ -2,6 +2,8 @@ const tap = require('tap')
 const request = require('request')
 const fastify = require('../index')
 
+const defaultUrl = 'http://localhost:8080/api/posts'
+
 tap.test('GET /posts route', t => {
 
     t.plan(5)
@@ -9,7 +11,7 @@ tap.test('GET /posts route', t => {
 
     request({
         method: 'GET',
-        url: 'http://localhost:8080/api/posts'
+        url: defaultUrl,
         }, (err, response, body) => {
         t.error(err)
         t.equal(response.statusCode, 200)
@@ -39,12 +41,12 @@ tap.test('POST /posts/add route', t => {
 
     request({
         method: 'POST',
-        url: 'http://localhost:8080/api/posts/add',
+        url: defaultUrl + '/add',
         body: JSON.stringify(post),
         headers: {
 			'Content-Type': 'application/json'
 		},
-        }, (err, response, body) => {
+        }, (err, response) => {
         t.error(err)
         t.equal(response.statusCode, 200)
         const data = JSON.parse(response.request.body);
@@ -54,14 +56,14 @@ tap.test('POST /posts/add route', t => {
 })
 
 
-tap.test('If the post is really created', t => {
+tap.test('The post is created', t => {
 
     t.plan(6)
     t.teardown(() => fastify.close())
 
     request({
         method: 'GET',
-        url: 'http://localhost:8080/api/posts',
+        url: defaultUrl,
         }, (err, response, body) => {
         t.error(err)
         t.equal(response.statusCode, 200)
@@ -72,4 +74,30 @@ tap.test('If the post is really created', t => {
         t.equal(post.description, 'Test description')
     })
 
+})
+
+tap.test('The post page is created', t => {
+
+    t.plan(6)
+    t.teardown(() => fastify.close())
+    request({
+        method: 'GET',
+        url: defaultUrl,
+        }, (err, response, body) => {
+        t.error(err)
+        t.equal(response.statusCode, 200)
+        const testPost = JSON.parse(body).find(item => item.title === 'Test title');
+        const testPostId = testPost.postId;
+        const firstPost = JSON.parse(body)[0];
+        t.equal(firstPost.title, testPost.title)
+        request({
+            method: 'GET',
+            url: defaultUrl + `/${testPostId}`,
+            }, (err, response, body) => {
+            t.error(err)
+            t.equal(response.statusCode, 200)
+            const post = JSON.parse(body);
+            t.equal(post.description, 'Test description')
+        })
+    })
 })
