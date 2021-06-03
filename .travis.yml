@@ -15,7 +15,7 @@ jobs:
       provider: heroku
       app:
         master: tuk-tuk-tuk
-        dtest: tuk-tuk-dtest
+        dtest: tuk-tuk-dtest-2
       api_key: $HEROKU_SECRET_KEY
   - stage: deploy api
     before_script:
