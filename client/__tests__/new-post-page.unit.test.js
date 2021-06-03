@@ -1,12 +1,12 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import NewPostPage from "../components/pages/new-post-page";
+import NewPostPage from '../components/pages/new-post-page';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('NewPostPage render', ()=>{
-    it('renders correctly', () => {
-        shallow(<NewPostPage/>)
-    });
+describe('NewPostPage render', () => {
+	it('renders correctly', () => {
+		shallow(<NewPostPage />);
+	});
 });

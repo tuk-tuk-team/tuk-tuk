@@ -1,2 +1,2 @@
-import Social from "./profile-social";
+import Social from './profile-social';
 export default Social;

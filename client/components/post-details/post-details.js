@@ -67,7 +67,7 @@ const flatView = (props) => {
 							return (
 								<div className="originLink">
 									<h4>Оригінальне оголошення</h4>
-									<a href={originLink} target="_blank">
+									<a href={originLink} target="_blank" rel="noreferrer">
 										{originLink}
 									</a>
 								</div>

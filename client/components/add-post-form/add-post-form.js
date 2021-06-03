@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PostService from '../../services/post-service';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import './add-post-form.css';
 
 class AddPostForm extends Component {
@@ -38,16 +38,16 @@ class AddPostForm extends Component {
 		const body =
 			this.state.type === 1
 				? {
-						...this.state,
-						originLink: this.state.originLink ? this.state.originLink : null
+					...this.state,
+					originLink: this.state.originLink ? this.state.originLink : null
 				  }
 				: {
-						...this.state,
-						district: null,
-						address: null,
-						ownerPhone: null,
-						price: null,
-						originLink: null
+					...this.state,
+					district: null,
+					address: null,
+					ownerPhone: null,
+					price: null,
+					originLink: null
 				  };
 
 		this.postService.createPost(body).then((data) => {
@@ -204,5 +204,5 @@ class AddPostForm extends Component {
 }
 
 //removed export with router as React v. > 5
-export  {AddPostForm}
-export  default withRouter(AddPostForm)
+export { AddPostForm };
+export default withRouter(AddPostForm);

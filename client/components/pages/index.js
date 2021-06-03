@@ -7,12 +7,11 @@ import EditProfile from './profile-edit-page';
 import NewPostPage from './new-post-page';
 import EditPost from './edit-post-page';
 
-
 export {
 	FeedPage,
 	ProfilePage,
 	PostPage,
-    NewPostPage,
+	NewPostPage,
 	Login,
 	SignUpMenu,
 	EditProfile,

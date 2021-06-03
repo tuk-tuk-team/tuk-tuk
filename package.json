@@ -12,7 +12,7 @@
     "lint": "eslint client/",
     "lint:fix": "eslint client/ --fix",
     "check-format": "prettier ./ --check",
-    "format": "prettier ./ --write"
+    "format": "prettier . --write"
   },
   "repository": {
     "type": "git",
