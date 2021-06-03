@@ -29,7 +29,7 @@ describe('PostPage tests', ()=>{
     });
 
     it('component renders correctly', () => {
-        shallow(<Spinner/>);
+        shallow(<Spinner/>); 
     });   
 
     it('formatDate works correctly', () => {       
