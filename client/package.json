@@ -1,4 +1,4 @@
-{ 
+{
   "name": "client",
   "version": "1.0.0",
   "description": "",
@@ -8,7 +8,7 @@
     "npm": "6.x"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node dist/index.js",
     "dev": "webpack serve",
     "build": "webpack --config webpack.config.js --mode production",
     "test": "jest"
@@ -17,9 +17,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/preset-env": "^7.13.12",
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/react": "^11.2.7",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.0",
@@ -30,13 +33,12 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-css-modules": "^2.1.0",
+    "jest-fetch-mock": "^3.0.3",
     "react-test-renderer": "^17.0.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2",
-    "@testing-library/react": "^11.2.7",
-    "jest-fetch-mock": "^3.0.3"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
