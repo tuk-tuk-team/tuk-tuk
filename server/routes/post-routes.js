@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 const PostAccess = require('../data-access/post-queries');
 
-async function routes(fastify, options) {
+async function routes(fastify) {
 	const postAccess = new PostAccess(fastify.db);
 
 	fastify.get('/', async (request, reply) => {

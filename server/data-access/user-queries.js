@@ -4,7 +4,7 @@ class UserAccess {
 	}
 
 	async getUsers() {
-		const result = await this.db.query(`SELECT * FROM users`);
+		const result = await this.db.query('SELECT * FROM users');
 
 		if (!result.rows.length) {
 			return {
@@ -15,27 +15,9 @@ class UserAccess {
 
 		return result.rows;
 	}
-
-	async getUserById(id) {
-		const result = await this.db.query(
-			`SELECT * FROM users WHERE "userId" = $1`,
-			[id]
-		);
-
-		if (!result.rows[0]) {
-			return {
-				error: true,
-				message: 'User not found'
-			};
-		}
-
-		const { password, ...data } = result.rows[0];
-		return data;
-	}
-
 	async getUserByUsername(username) {
 		const result = await this.db.query(
-			`SELECT * FROM users WHERE "username" = $1`,
+			'SELECT * FROM users WHERE "username" = $1',
 			[username]
 		);
 

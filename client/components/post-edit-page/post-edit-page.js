@@ -52,16 +52,16 @@ class EditPostForm extends Component {
 		const body =
 			this.state.type === 1
 				? {
-					...this.state,
-					originLink: this.state.originLink ? this.state.originLink : null
+						...this.state,
+						originLink: this.state.originLink ? this.state.originLink : null
 				  }
 				: {
-					...this.state,
-					district: null,
-					address: null,
-					ownerPhone: null,
-					price: null,
-					originLink: null
+						...this.state,
+						district: null,
+						address: null,
+						ownerPhone: null,
+						price: null,
+						originLink: null
 				  };
 
 		this.postService.editPost(this.state.postId, body).then((data) => {

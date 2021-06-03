@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './profile-page.css';
 import { Row } from 'reactstrap';
-import { Col } from 'reactstrap';
 
 import ShortInfo from '../profile-short-info';
 import Social from '../profile-social';

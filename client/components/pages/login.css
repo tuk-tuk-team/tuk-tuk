@@ -2,16 +2,13 @@
     text-align: center;
     padding-top: 70px;
     width: 60%;
-    margin-top: 100px;
-    margin-bottom: 70px;
     background-color: #FFD15B;
     border-radius: 6px;
     border: 1px solid black;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 100px auto 70px;
     padding-bottom: 100px;
 }
 
