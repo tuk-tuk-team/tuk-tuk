@@ -11,7 +11,7 @@ fastify.register(dbConn);
 fastify.register(require('fastify-cookie'));
 fastify.register(require('fastify-cors'), {
 	credentials: true,
-	origin: ['http://localhost:3000']
+	origin: ['postgres://zlxxrrdvgqrshv:a7f7948c28503e6cdf178d19da4bc8b0b7e5ff5ddf017410806bf6b009ac45d1@ec2-54-155-226-153.eu-west-1.compute.amazonaws.com:5432/d61mcagtaddrj5']
 });
 
 fastify.register(postRoutes, { prefix: '/api/posts' });

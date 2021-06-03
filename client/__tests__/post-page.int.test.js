@@ -30,7 +30,7 @@ describe('PostPage tests', ()=>{
 
     it('component renders correctly', () => {
         shallow(<Spinner/>);
-    }); 
+    });  
 
     it('formatDate works correctly', () => {       
         const time = new Date(Date.UTC(2021, 5, 25)).valueOf()
