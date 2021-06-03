@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 
 describe('PostService Test', ()=>{
-    
+   
     let PS;
     beforeEach(() => {
         fetch.resetMocks();
